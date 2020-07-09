@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>Backtracking 알고리즘 &middot; 창욱&#39;s 공부방</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Backtracking 알고리즘">
+<meta itemprop="description" content="Backtracking 이란? 어떤 노드의 유망성 점검 후, 유망하지 않으면 그 노드의 부모노드로 되돌아간 후 다른 자손노드를 검색
+KEYWORD ! &ldquo;배제&rdquo;, &ldquo;풀이 시간 단축&rdquo;
+유망하지 않으면 배제를 하고 부모노드로 되돌아가면서 풀이 시간을 단축!!
+Backtracking의 가장 유명한 예제 중 하나인 4-Queens Problem!
+4-Queens Problem은 4개의 Queen을 서로 상대방을 위협하지 않도록 4*4 체스판에 위치시키는 문제이다.
+좌측최상단이 (1,1)이다.
+)
+되추적은 깊이우선탐색(Depth-First Search)과 마찬가지로 스택을 사용한다!
+깊이우선탐색은 (1,1) 노도의 자식인 (2,1),(2,2),(2,3),(2,4)를 스택에 넣을 것이다.
+하지만!! 되추적은 (2,1),(2,2)를 스택에 넣지 않는다.">
+<meta itemprop="datePublished" content="2020-07-10T00:32:21&#43;09:00" />
+<meta itemprop="dateModified" content="2020-07-10T00:32:21&#43;09:00" />
+<meta itemprop="wordCount" content="105">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Backtracking 알고리즘"/>
+<meta name="twitter:description" content="Backtracking 이란? 어떤 노드의 유망성 점검 후, 유망하지 않으면 그 노드의 부모노드로 되돌아간 후 다른 자손노드를 검색
+KEYWORD ! &ldquo;배제&rdquo;, &ldquo;풀이 시간 단축&rdquo;
+유망하지 않으면 배제를 하고 부모노드로 되돌아가면서 풀이 시간을 단축!!
+Backtracking의 가장 유명한 예제 중 하나인 4-Queens Problem!
+4-Queens Problem은 4개의 Queen을 서로 상대방을 위협하지 않도록 4*4 체스판에 위치시키는 문제이다.
+좌측최상단이 (1,1)이다.
+)
+되추적은 깊이우선탐색(Depth-First Search)과 마찬가지로 스택을 사용한다!
+깊이우선탐색은 (1,1) 노도의 자식인 (2,1),(2,2),(2,3),(2,4)를 스택에 넣을 것이다.
+하지만!! 되추적은 (2,1),(2,2)를 스택에 넣지 않는다."/>
+
+
+<meta property="og:title" content="Backtracking 알고리즘" />
+<meta property="og:description" content="Backtracking 이란? 어떤 노드의 유망성 점검 후, 유망하지 않으면 그 노드의 부모노드로 되돌아간 후 다른 자손노드를 검색
+KEYWORD ! &ldquo;배제&rdquo;, &ldquo;풀이 시간 단축&rdquo;
+유망하지 않으면 배제를 하고 부모노드로 되돌아가면서 풀이 시간을 단축!!
+Backtracking의 가장 유명한 예제 중 하나인 4-Queens Problem!
+4-Queens Problem은 4개의 Queen을 서로 상대방을 위협하지 않도록 4*4 체스판에 위치시키는 문제이다.
+좌측최상단이 (1,1)이다.
+)
+되추적은 깊이우선탐색(Depth-First Search)과 마찬가지로 스택을 사용한다!
+깊이우선탐색은 (1,1) 노도의 자식인 (2,1),(2,2),(2,3),(2,4)를 스택에 넣을 것이다.
+하지만!! 되추적은 (2,1),(2,2)를 스택에 넣지 않는다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/backtracking/" />
+<meta property="article:published_time" content="2020-07-10T00:32:21+09:00" />
+<meta property="article:modified_time" content="2020-07-10T00:32:21+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>창욱&#39;s 공부방</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Backtracking 알고리즘</h1>
+
+  <div class="post-date">
+    <time datetime="2020-07-10T00:32:21&#43;0900">Jul 10, 2020</time> &middot; 1 min read
+  </div>
+
+  <h2 id="backtracking-이란">Backtracking 이란?</h2>
+<p>어떤 노드의 유망성 점검 후, 유망하지 않으면 그 노드의 부모노드로 되돌아간 후 다른 자손노드를 검색</p>
+<p>KEYWORD !
+&ldquo;배제&rdquo;, &ldquo;풀이 시간 단축&rdquo;</p>
+<p>유망하지 않으면 배제를 하고 부모노드로 되돌아가면서 풀이 시간을 단축!!</p>
+<p>Backtracking의 가장 유명한 예제 중 하나인 4-Queens Problem!</p>
+<p>4-Queens Problem은 4개의 Queen을 서로 상대방을 위협하지 않도록 4*4 체스판에 위치시키는 문제이다.</p>
+<p>좌측최상단이 (1,1)이다.</p>
+<p><img src="https://user-images.githubusercontent.com/66955409/87060419-77ffb480-c245-11ea-8a4d-5bdf3a1e2cad.JPG" alt="Queen4">)</p>
+<p><img src="https://user-images.githubusercontent.com/66955409/87061288-84384180-c246-11ea-9676-d06408c41ea3.JPG" alt="Tree Image"></p>
+<p>되추적은 깊이우선탐색(Depth-First Search)과 마찬가지로 스택을 사용한다!</p>
+<p><img src="https://user-images.githubusercontent.com/66955409/87061567-e133f780-c246-11ea-8ca3-b12c14b56b1d.JPG" alt="유망"></p>
+<p>깊이우선탐색은 (1,1) 노도의 자식인 (2,1),(2,2),(2,3),(2,4)를 스택에 넣을 것이다.</p>
+<p>하지만!! 되추적은 (2,1),(2,2)를 스택에 넣지 않는다.</p>
+<p>그 이유는 유망하지 않기 때문이다!!!</p>
+<p>이처럼 되추적은 스택에 자식 노드를 넣기 전에 유망한지, 즉 해답이 될 가능성이 있는지 확인한 후 스택에 넣는다.</p>
+<p>그리고 (2,1),(2,2)는 해답이 될 가능성이 없기에 가능성에서 배제한다!</p>
+<p><img src="https://user-images.githubusercontent.com/66955409/87062291-d7f75a80-c247-11ea-9ffa-6f1a3ef240de.JPG" alt="end part"></p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

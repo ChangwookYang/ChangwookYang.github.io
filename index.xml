@@ -6,10 +6,28 @@
     <description>Recent content on 창욱&#39;s 공부방</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jul 2020 00:32:41 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2020 00:32:21 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Backtracking 알고리즘</title>
+      <link>https://changwookyang.github.io/post/backtracking/</link>
+      <pubDate>Fri, 10 Jul 2020 00:32:21 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/backtracking/</guid>
+      <description>Backtracking 이란? 어떤 노드의 유망성 점검 후, 유망하지 않으면 그 노드의 부모노드로 되돌아간 후 다른 자손노드를 검색
+KEYWORD ! &amp;ldquo;배제&amp;rdquo;, &amp;ldquo;풀이 시간 단축&amp;rdquo;
+유망하지 않으면 배제를 하고 부모노드로 되돌아가면서 풀이 시간을 단축!!
+Backtracking의 가장 유명한 예제 중 하나인 4-Queens Problem!
+4-Queens Problem은 4개의 Queen을 서로 상대방을 위협하지 않도록 4*4 체스판에 위치시키는 문제이다.
+좌측최상단이 (1,1)이다.
+)
+되추적은 깊이우선탐색(Depth-First Search)과 마찬가지로 스택을 사용한다!
+깊이우선탐색은 (1,1) 노도의 자식인 (2,1),(2,2),(2,3),(2,4)를 스택에 넣을 것이다.
+하지만!! 되추적은 (2,1),(2,2)를 스택에 넣지 않는다.</description>
+    </item>
     
     <item>
       <title>창욱 Study Blog!</title>
