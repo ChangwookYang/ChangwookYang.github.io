@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>Spring Framework(1) &middot; 창욱&#39;s 공부방</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Spring Framework(1)">
+<meta itemprop="description" content="Spring 프래임워크란? IoC와 AOP를 지원하는 경량의 컨테이너 프레임워크 - 경량(두 가지 이유)  1. 모듈들이 jar파일로 묶여있다.2. POJO(Plain Old Java Object) 지원하여 형식 제약이 없다ex) Servlet 같은 경우는 doGet, doPost 등의 제약이 있는 것이 차이점 - 컨테이너  객체의 인스턴스 생성, 생명주기를 관리프로그래머가 작성한 코드를 스스로 참조한 뒤 알아서 객체의 생성과 소멸을 컨트롤해준다. - IoC(Inversion of Conversion, 제어의 역행)  Dependency Injection을 제공!ex) 다음 코드를 스프링으로 설정할 수 있다.">
+<meta itemprop="datePublished" content="2020-07-08T00:32:21&#43;09:00" />
+<meta itemprop="dateModified" content="2020-07-08T00:32:21&#43;09:00" />
+<meta itemprop="wordCount" content="223">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring Framework(1)"/>
+<meta name="twitter:description" content="Spring 프래임워크란? IoC와 AOP를 지원하는 경량의 컨테이너 프레임워크 - 경량(두 가지 이유)  1. 모듈들이 jar파일로 묶여있다.2. POJO(Plain Old Java Object) 지원하여 형식 제약이 없다ex) Servlet 같은 경우는 doGet, doPost 등의 제약이 있는 것이 차이점 - 컨테이너  객체의 인스턴스 생성, 생명주기를 관리프로그래머가 작성한 코드를 스스로 참조한 뒤 알아서 객체의 생성과 소멸을 컨트롤해준다. - IoC(Inversion of Conversion, 제어의 역행)  Dependency Injection을 제공!ex) 다음 코드를 스프링으로 설정할 수 있다."/>
+
+
+<meta property="og:title" content="Spring Framework(1)" />
+<meta property="og:description" content="Spring 프래임워크란? IoC와 AOP를 지원하는 경량의 컨테이너 프레임워크 - 경량(두 가지 이유)  1. 모듈들이 jar파일로 묶여있다.2. POJO(Plain Old Java Object) 지원하여 형식 제약이 없다ex) Servlet 같은 경우는 doGet, doPost 등의 제약이 있는 것이 차이점 - 컨테이너  객체의 인스턴스 생성, 생명주기를 관리프로그래머가 작성한 코드를 스스로 참조한 뒤 알아서 객체의 생성과 소멸을 컨트롤해준다. - IoC(Inversion of Conversion, 제어의 역행)  Dependency Injection을 제공!ex) 다음 코드를 스프링으로 설정할 수 있다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/spring/" />
+<meta property="article:published_time" content="2020-07-08T00:32:21+09:00" />
+<meta property="article:modified_time" content="2020-07-08T00:32:21+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>창욱&#39;s 공부방</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Spring Framework(1)</h1>
+
+  <div class="post-date">
+    <time datetime="2020-07-08T00:32:21&#43;0900">Jul 8, 2020</time> &middot; 2 min read
+  </div>
+
+  <h1 id="spring-프래임워크란">Spring 프래임워크란?</h1>
+<h2 id="ioc와-aop를-지원하는-경량의-컨테이너-프레임워크">IoC와 AOP를 지원하는 경량의 컨테이너 프레임워크</h2>
+<h3 id="--경량두-가지-이유">- 경량(두 가지 이유)</h3>
+<pre><code>       1. 모듈들이 jar파일로 묶여있다.
+
+       2. POJO(Plain Old Java Object) 지원하여 형식 제약이 없다
+
+          ex) Servlet 같은 경우는 doGet, doPost 등의 제약이 있는 것이 차이점
+</code></pre>
+<h3 id="--컨테이너">- 컨테이너</h3>
+<pre><code>       객체의 인스턴스 생성, 생명주기를 관리
+
+       프로그래머가 작성한 코드를 스스로 참조한 뒤 알아서 객체의 생성과 소멸을 컨트롤해준다.
+</code></pre>
+<h3 id="--iocinversion-of-conversion-제어의-역행">- IoC(Inversion of Conversion, 제어의 역행)</h3>
+<pre><code>       Dependency Injection을 제공!
+
+       ex) 다음 코드를 스프링으로 설정할 수 있다.
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">           <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TV</span> <span style="color:#f92672">{</span>
+
+                     <span style="color:#66d9ef">private</span> LgSpeaker speaker<span style="color:#f92672">;</span>
+
+                     <span style="color:#66d9ef">public</span> TV <span style="color:#f92672">{</span>
+
+                                speaker <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LgSpeaker<span style="color:#f92672">();</span>
+
+                     <span style="color:#f92672">}</span>
+
+                     <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">volumeUp</span><span style="color:#f92672">(){</span>
+
+                                speaker<span style="color:#f92672">.</span><span style="color:#a6e22e">makeLgSpeakerUp</span><span style="color:#f92672">();</span>
+
+                     <span style="color:#f92672">}</span>
+
+           <span style="color:#f92672">}</span>
+
+           <span style="color:#f92672">-&gt;</span>        삼성스피커로 <span style="color:#a6e22e">바꿈</span><span style="color:#f92672">(</span>관리가 어려움<span style="color:#f92672">)</span>
+
+           <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TV</span> <span style="color:#f92672">{</span>
+
+                     <span style="color:#66d9ef">private</span> SamSpeaker speaker<span style="color:#f92672">;</span>
+
+                     <span style="color:#66d9ef">public</span> TV <span style="color:#f92672">{</span>
+
+                                speaker <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SamSpeaker<span style="color:#f92672">();</span>
+
+                     <span style="color:#f92672">}</span>
+
+                     <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">volumeUp</span><span style="color:#f92672">(){</span>
+
+                                speaker<span style="color:#f92672">.</span><span style="color:#a6e22e">makeSamVolumeUp</span><span style="color:#f92672">();</span>
+
+                     <span style="color:#f92672">}</span>
+
+           <span style="color:#f92672">}</span>
+</code></pre></div><pre><code>       -&gt; 스프링으로 설정가능(소스 바꿀필요 없이 설정값만 바꾸면됨)
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">           <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">bean</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;samsungSpeaker&#34;</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;class.SamSpeaker&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+           <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">bean</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;class.TV&#34;</span><span style="color:#f92672">&gt;</span>
+
+                     <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">property</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;speaker&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;samsungSpeaker&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+           <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/bean&gt;</span>
+</code></pre></div><pre><code>       -&gt; 참고
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">           <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">bean</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dbMessageProvider&#34;</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;com.lrp.cbo.cm.message.DBMessageProvider&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+           <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">bean</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;com.lrp.core.message.MessageSource&#34;</span><span style="color:#f92672">&gt;</span>
+
+                     <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">property</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;messageProvider&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dbMessageProvider&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+           <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/bean&gt;</span>
+</code></pre></div><pre><code>       1. com.lrp.cbo.cm.message.DBMessageProvider 객체를 생성
+
+       2. com.lrp.core.message.MessageSource 객체를 생성할 때 id:dbMessageProvider(DBMessageProvider 객체)참조
+
+       3.  /lrpcore/src/main/java/com/lrp/core/message/MessageSource.java
+
+                 private static MessageProvider messageProvider; 객체에 1.에서 생성한 DBMessageProvider 객체를 주입(=의존성 주입)
+</code></pre>
+<h3 id="--aop-asepect-oriented-programming">- AOP (Asepect-Oriented Programming)</h3>
+<pre><code>       1. 핵심관심과 횡돤관심 분리 (핵심관심 : 비지니스로직, 횡단관심 : 로그 등 공통 로직)
+
+       2. execution 패턴에 정해진 표현이 수행될때 debugLogAspect 객체의 logAround 를 실행한다.
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">           <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">bean</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;debugLogAspect&#34;</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;com.lrp.core.log.DebugLogAspect&#34;</span><span style="color:#f92672">&gt;</span>
+
+                     <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">property</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jsonMapper&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jsonObjectMapper&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+           <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/bean&gt;</span>
+
+           <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">beans</span> <span style="color:#a6e22e">profile</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pc&#34;</span><span style="color:#f92672">&gt;</span>
+
+                     <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">aop</span><span style="color:#f92672">:</span><span style="color:#a6e22e">config</span> <span style="color:#f92672">&gt;</span>
+
+                         <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">aop</span><span style="color:#f92672">:</span><span style="color:#a6e22e">aspect</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;aspectLoggging&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;debugLogAspect&#34;</span><span style="color:#f92672">&gt;</span>
+
+                             <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">aop</span><span style="color:#f92672">:</span><span style="color:#a6e22e">pointcut</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;svcPointcut&#34;</span> <span style="color:#a6e22e">expression</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;execution(public * com.lrp..*.svc.*.*(..))&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+                             <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">aop</span><span style="color:#f92672">:</span><span style="color:#a6e22e">around</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logAround&#34;</span> <span style="color:#a6e22e">pointcut</span><span style="color:#f92672">-</span><span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;svcPointcut&#34;</span>  <span style="color:#f92672">/&gt;</span>
+
+                         <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/aop:aspect&gt;</span>
+
+                     <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/aop:config&gt;</span>
+
+           <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/beans&gt;</span>
+</code></pre></div>
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>

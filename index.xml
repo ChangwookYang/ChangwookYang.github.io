@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>http://example.org/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>창욱&#39;s 공부방</title>
+    <link>https://changwookyang.github.io/</link>
+    <description>Recent content on 창욱&#39;s 공부방</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 08 Jul 2020 00:32:41 +0900</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Test</title>
-      <link>http://example.org/post/test/</link>
+      <title>창욱 Study Blog!</title>
+      <link>https://changwookyang.github.io/post/test/</link>
       <pubDate>Wed, 08 Jul 2020 00:32:41 +0900</pubDate>
       
-      <guid>http://example.org/post/test/</guid>
+      <guid>https://changwookyang.github.io/post/test/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Framework(1)</title>
+      <link>https://changwookyang.github.io/post/spring/</link>
+      <pubDate>Wed, 08 Jul 2020 00:32:21 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/spring/</guid>
+      <description>Spring 프래임워크란? IoC와 AOP를 지원하는 경량의 컨테이너 프레임워크 - 경량(두 가지 이유)  1. 모듈들이 jar파일로 묶여있다.2. POJO(Plain Old Java Object) 지원하여 형식 제약이 없다ex) Servlet 같은 경우는 doGet, doPost 등의 제약이 있는 것이 차이점 - 컨테이너  객체의 인스턴스 생성, 생명주기를 관리프로그래머가 작성한 코드를 스스로 참조한 뒤 알아서 객체의 생성과 소멸을 컨트롤해준다. - IoC(Inversion of Conversion, 제어의 역행)  Dependency Injection을 제공!ex) 다음 코드를 스프링으로 설정할 수 있다.</description>
     </item>
     
   </channel>
