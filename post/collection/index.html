@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>Collection 간단 정리 &middot; 창욱&#39;s 공부방</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Collection 간단 정리">
+<meta itemprop="description" content="도대체 Collection이란 무엇인가?!! 너무 자주나오는데 잘 모름! 헷갈림!
+Java에서 Collection이란 데이터의 집합, 그룹을 의미한다!!!
+다음은 상속구조를 나타낸다!! Collection이 다 상속했다!! Map의 경우에는 Collection으로 상속받고 있지 않지만 Collection으로 분류된다.  Collection 인터페이스 공통 메소드 중, iterator() 메소드  Iterator&lt;E&gt; iterator() // 현재 콜렉션에 포함되어 있는 요소를 반복적으로 가져오기 위해 Iterator 인스턴스를 반환한다. Iterator &lt;string&gt; itr = list.iterator(); // 모든 컬렉션 안에는 iterator메소드가 있다!! while(itr.hasNext()){ String str = itr.next(); sysout(str); }  Vector 배열 사용 시 배열의 크기를 벗어나는 인덱스를 접근하면 에러가 발생한다.">
+<meta itemprop="datePublished" content="2020-07-11T23:32:21&#43;09:00" />
+<meta itemprop="dateModified" content="2020-07-11T23:32:21&#43;09:00" />
+<meta itemprop="wordCount" content="190">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Collection 간단 정리"/>
+<meta name="twitter:description" content="도대체 Collection이란 무엇인가?!! 너무 자주나오는데 잘 모름! 헷갈림!
+Java에서 Collection이란 데이터의 집합, 그룹을 의미한다!!!
+다음은 상속구조를 나타낸다!! Collection이 다 상속했다!! Map의 경우에는 Collection으로 상속받고 있지 않지만 Collection으로 분류된다.  Collection 인터페이스 공통 메소드 중, iterator() 메소드  Iterator&lt;E&gt; iterator() // 현재 콜렉션에 포함되어 있는 요소를 반복적으로 가져오기 위해 Iterator 인스턴스를 반환한다. Iterator &lt;string&gt; itr = list.iterator(); // 모든 컬렉션 안에는 iterator메소드가 있다!! while(itr.hasNext()){ String str = itr.next(); sysout(str); }  Vector 배열 사용 시 배열의 크기를 벗어나는 인덱스를 접근하면 에러가 발생한다."/>
+
+
+<meta property="og:title" content="Collection 간단 정리" />
+<meta property="og:description" content="도대체 Collection이란 무엇인가?!! 너무 자주나오는데 잘 모름! 헷갈림!
+Java에서 Collection이란 데이터의 집합, 그룹을 의미한다!!!
+다음은 상속구조를 나타낸다!! Collection이 다 상속했다!! Map의 경우에는 Collection으로 상속받고 있지 않지만 Collection으로 분류된다.  Collection 인터페이스 공통 메소드 중, iterator() 메소드  Iterator&lt;E&gt; iterator() // 현재 콜렉션에 포함되어 있는 요소를 반복적으로 가져오기 위해 Iterator 인스턴스를 반환한다. Iterator &lt;string&gt; itr = list.iterator(); // 모든 컬렉션 안에는 iterator메소드가 있다!! while(itr.hasNext()){ String str = itr.next(); sysout(str); }  Vector 배열 사용 시 배열의 크기를 벗어나는 인덱스를 접근하면 에러가 발생한다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/collection/" />
+<meta property="article:published_time" content="2020-07-11T23:32:21+09:00" />
+<meta property="article:modified_time" content="2020-07-11T23:32:21+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>창욱&#39;s 공부방</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Collection 간단 정리</h1>
+
+  <div class="post-date">
+    <time datetime="2020-07-11T23:32:21&#43;0900">Jul 11, 2020</time> &middot; 1 min read
+  </div>
+
+  <h3 id="도대체-collection이란-무엇인가"><strong>도대체 Collection이란 무엇인가?!!</strong></h3>
+<p>너무 자주나오는데 잘 모름! 헷갈림!</p>
+<p>Java에서 Collection이란 <strong>데이터의 집합, 그룹</strong>을 의미한다!!!</p>
+<p>다음은 상속구조를 나타낸다!!
+Collection이 다 상속했다!!
+Map의 경우에는 Collection으로 상속받고 있지 않지만 Collection으로 분류된다.
+<img src="https://user-images.githubusercontent.com/66955409/87226486-018ebe00-c3cf-11ea-8d7a-eb1dc738f639.png" alt="image"></p>
+<ul>
+<li>Collection 인터페이스 공통 메소드 중, iterator() 메소드</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JAVA" data-lang="JAVA">Iterator<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">iterator</span><span style="color:#f92672">()</span> <span style="color:#75715e">// 현재 콜렉션에 포함되어 있는 요소를 반복적으로 가져오기 위해 Iterator 인스턴스를 반환한다.
+</span><span style="color:#75715e"></span>Iterator <span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> itr <span style="color:#f92672">=</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span> <span style="color:#75715e">// 모든 컬렉션 안에는 iterator메소드가 있다!!
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>itr<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()){</span>
+    String str <span style="color:#f92672">=</span> itr<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+    sysout<span style="color:#f92672">(</span>str<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>Vector
+배열 사용 시 배열의 크기를 벗어나는 인덱스를 접근하면 에러가 발생한다.
+자바에서 동적인 길이로 여러 데이터형을 저장하기 위해 Vector클래스를 제공한다.
+Vector 클래스는 가변 길이의 배열이라 할 수 있다!!</li>
+</ul>
+<hr>
+<h3 id="arraylist와-linkedlist의-차이"><strong>ArrayList와 LinkedList의 차이?!</strong></h3>
+<ul>
+<li>
+<p>ArrayList는 내부 배열에 기반을 둔 리스트 구현을 제공하며 리스트 요소에 대한 접근이 빠르다!!</p>
+<ul>
+<li>데이터의 추가, 삭제를 위해 데이터를 복사하는 방법을 사용한다.</li>
+<li>데이터를 복사하는 방법을 사용하므로 대량의 데이터를 추가/삭제하는 경우 그만큼 데이터 복사가 많이 일어나 성능이 저하된다.</li>
+<li>반면 각 데이터는 인덱스를 가지고 있어 한번에 참조가 가능해 데이터의 검색에 유리하다!!!
+<img src="https://user-images.githubusercontent.com/66955409/87226511-24b96d80-c3cf-11ea-9591-98dd3d1d3c8b.png" alt="image"></li>
+</ul>
+</li>
+<li>
+<p>LinkedList는 연결된 노드들을 기반으로 구현된 리스트!</p>
+<ul>
+<li>리스트 요소에 대한 접근은 느린 반면에 추가, 삭제에 대한 작업은 빠르다!!!</li>
+<li>ArrayList와 같이 데이터의 추가, 삭제 시 불필요한 데이터 복사가 없어 데이터 추가, 삭제가 빠르다!!!</li>
+<li>LinkedList는 데이터를 저장하는 각 노드가 이전 노드와 다음 노드의 상태만 알고있다고 생각하면 된다!!!
+<img src="https://user-images.githubusercontent.com/66955409/87226527-4581c300-c3cf-11ea-8c97-6723feb92694.png" alt="image"></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+</body>
+</html>
