@@ -6,10 +6,25 @@
     <description>Recent content in Posts on 창욱&#39;s 공부방</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Jul 2020 23:32:21 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2020 23:10:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DevOps란?</title>
+      <link>https://changwookyang.github.io/post/devops/</link>
+      <pubDate>Sun, 12 Jul 2020 23:10:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/devops/</guid>
+      <description>DevOps란? 1. 등장 배경 개발만이 전부가 아니다. 프로젝트를 빌드하고 배포하고 테스트하는 운영업무도 해야 한다.
+만약, 두 개의 일을 다른 조직이 나눠서 관리하게 된다면 의사소통도 좋지 않고 비효율적인 면이 많을 것이다.
+그래서 등장한 것이 DevOps이다.
+2. DevOps란? DevOps는 소프트웨어 개발 방법론 중 하나이다.
+하나의 소프트웨어를 개발하기 위해 여러 명이 동시에 개발할 수 있는 환경도 필요하며(Dev)
+수천명의 사용자를 상대하는 서버, 스토리지, 운영체제 등 인프라 환경도 필요하다.(Ops)
+DevOps란 소프트웨어 개발자들과 IT종사자들 사이의 의사 소통, 협업, 융합을 강조한 소프트웨어 개발 방법론이다.</description>
+    </item>
     
     <item>
       <title>Collection 간단 정리</title>
