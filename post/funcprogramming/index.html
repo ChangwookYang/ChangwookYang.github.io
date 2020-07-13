@@ -12,10 +12,14 @@
   
 
 <meta itemprop="name" content="함수형 프로그래밍이란?">
-<meta itemprop="description" content="함수형 프로그래밍이란? ">
+<meta itemprop="description" content="함수형 프로그래밍이란? 기존의 명령형 방식 : 너는 이걸하고 저걸 누구랑 어떻게 해서 어떠한 결과를 산출해 내라!
+함수형 형식 : 이거는 이거다!
+ 함수형 프로그래밍의 특징  인풋과 아웃풋이 있다 외부 환경으로부터 철저히 독립적이다. 동일한 인풋에 있어서 언제나 동일한 아웃풋을 만든다.
+(순수함수 : 인풋이 같으면 아웃풋은 동일하다.)    어떤 함수의 동작에 의해 프로그램 내 특정 상태가 변경되는 상황이 발생할 수 있다.
+함수형 프로그래밍은 함수의 동작에 의한 함수의 동작에 의한 변수의 부수적인 값 변경을 원천 배제함으로써 오류를 방지한다.">
 <meta itemprop="datePublished" content="2020-07-13T23:47:00&#43;09:00" />
 <meta itemprop="dateModified" content="2020-07-13T23:47:00&#43;09:00" />
-<meta itemprop="wordCount" content="2">
+<meta itemprop="wordCount" content="301">
 
 
 
@@ -23,11 +27,19 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="함수형 프로그래밍이란?"/>
-<meta name="twitter:description" content="함수형 프로그래밍이란? "/>
+<meta name="twitter:description" content="함수형 프로그래밍이란? 기존의 명령형 방식 : 너는 이걸하고 저걸 누구랑 어떻게 해서 어떠한 결과를 산출해 내라!
+함수형 형식 : 이거는 이거다!
+ 함수형 프로그래밍의 특징  인풋과 아웃풋이 있다 외부 환경으로부터 철저히 독립적이다. 동일한 인풋에 있어서 언제나 동일한 아웃풋을 만든다.
+(순수함수 : 인풋이 같으면 아웃풋은 동일하다.)    어떤 함수의 동작에 의해 프로그램 내 특정 상태가 변경되는 상황이 발생할 수 있다.
+함수형 프로그래밍은 함수의 동작에 의한 함수의 동작에 의한 변수의 부수적인 값 변경을 원천 배제함으로써 오류를 방지한다."/>
 
 
 <meta property="og:title" content="함수형 프로그래밍이란?" />
-<meta property="og:description" content="함수형 프로그래밍이란? " />
+<meta property="og:description" content="함수형 프로그래밍이란? 기존의 명령형 방식 : 너는 이걸하고 저걸 누구랑 어떻게 해서 어떠한 결과를 산출해 내라!
+함수형 형식 : 이거는 이거다!
+ 함수형 프로그래밍의 특징  인풋과 아웃풋이 있다 외부 환경으로부터 철저히 독립적이다. 동일한 인풋에 있어서 언제나 동일한 아웃풋을 만든다.
+(순수함수 : 인풋이 같으면 아웃풋은 동일하다.)    어떤 함수의 동작에 의해 프로그램 내 특정 상태가 변경되는 상황이 발생할 수 있다.
+함수형 프로그래밍은 함수의 동작에 의한 함수의 동작에 의한 변수의 부수적인 값 변경을 원천 배제함으로써 오류를 방지한다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://changwookyang.github.io/post/funcprogramming/" />
 <meta property="article:published_time" content="2020-07-13T23:47:00+09:00" />
@@ -103,10 +115,87 @@
   <h1>함수형 프로그래밍이란?</h1>
 
   <div class="post-date">
-    <time datetime="2020-07-13T23:47:00&#43;0900">Jul 13, 2020</time> &middot; 1 min read
+    <time datetime="2020-07-13T23:47:00&#43;0900">Jul 13, 2020</time> &middot; 2 min read
   </div>
 
-  <h1 id="함수형-프로그래밍이란">함수형 프로그래밍이란?</h1>
+  <h3 id="함수형-프로그래밍이란">함수형 프로그래밍이란?</h3>
+<p><img src="https://user-images.githubusercontent.com/66955409/87318578-814d9180-c563-11ea-81bf-4b5acf3baf5f.png" alt="명령형카카오">
+기존의 명령형 방식 : 너는 이걸하고 저걸 누구랑 어떻게 해서 어떠한 결과를  산출해 내라!<br>
+<img src="https://user-images.githubusercontent.com/66955409/87318590-83afeb80-c563-11ea-9bf0-a2f4e1f2d609.png" alt="함수형카카오">
+함수형 형식 : 이거는 이거다!</p>
+<ul>
+<li>함수형 프로그래밍의 특징
+<ul>
+<li>인풋과 아웃풋이 있다</li>
+<li>외부 환경으로부터 철저히 독립적이다.</li>
+<li>동일한 인풋에 있어서 언제나 동일한 아웃풋을 만든다.<br>
+(순수함수 : 인풋이 같으면 아웃풋은 동일하다.)</li>
+</ul>
+</li>
+</ul>
+<p>어떤 함수의 동작에 의해 프로그램 내 특정 상태가 변경되는 상황이 발생할 수 있다.<br>
+함수형 프로그래밍은 함수의 동작에 의한 함수의 동작에 의한 변수의 부수적인 값 변경을 원천 배제함으로써 오류를 방지한다.</p>
+<ol>
+<li>
+<p>함수형 프로그래밍은 &lsquo;선언형&rsquo;이다.<br>
+기존은 &lsquo;명령형&rsquo; 형식 - 너는 이걸하고 너는 저걸 누구랑 어떻게해서 어떠한 결과를 산출해내라<br>
+선언형은 이거&rsquo;는&rsquo; 이거다!
+순수함수들은 인풋만 같으면 같은 결과를 산출한다.</p>
+</li>
+<li>
+<p>함수도 값이다.</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">say_it</span> (<span style="color:#a6e22e">given</span>){
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">given</span>);
+}
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">say_it</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">given</span>){
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">given</span>);
+}
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">say_it</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">given</span>) =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">given</span>);
+</code></pre></div><p>순수함수의 경우 인자값에 대한 정해진 값을 리턴해주기 때문에 함수를 값으로 생각할 수 있다.</p>
+<ol start="3">
+<li>고계함수
+함수를 값으로 볼 수 있다면 함수도 다른 함수의 인자로 넣어줄 수 있다.<br>
+다른 함수를 인자로 받거나 다른 함수를 반환하는 함수를 고계함수라 한다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">calc</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">num1</span>, <span style="color:#a6e22e">num2</span>, <span style="color:#a6e22e">op</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">op</span>(<span style="color:#a6e22e">num1</span>, <span style="color:#a6e22e">num2</span>);
+}
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">calc</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">num1</span>, <span style="color:#a6e22e">num2</span>, <span style="color:#a6e22e">op</span>) =&gt; <span style="color:#a6e22e">op</span>(<span style="color:#a6e22e">num1</span>, <span style="color:#a6e22e">num2</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">add</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">num1</span>, <span style="color:#a6e22e">num2</span>) =&gt; <span style="color:#a6e22e">num1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num2</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">multiplay</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">num1</span>, <span style="color:#a6e22e">num2</span>) =&gt; <span style="color:#a6e22e">num1</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">num2</span>;
+
+<span style="color:#a6e22e">calc</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> <span style="color:#a6e22e">add</span>);
+<span style="color:#a6e22e">calc</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">multiply</span>);
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/66955409/87318685-a3471400-c563-11ea-9c86-e2f77c722648.png" alt="고계함수1"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">calcWidth</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">op</span>) =&gt; (<span style="color:#a6e22e">num</span>) =&gt; <span style="color:#a6e22e">op</span>(<span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">num</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">add2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">calcWidth</span>(<span style="color:#a6e22e">add</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">multiply2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">calcWidth</span>(<span style="color:#a6e22e">multiply</span>);
+
+<span style="color:#a6e22e">add2</span>(<span style="color:#ae81ff">3</span>) <span style="color:#75715e">// 5 리턴
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">multiply2</span>(<span style="color:#ae81ff">3</span>) <span style="color:#75715e">// 6 리턴
+</span></code></pre></div><p><img src="https://user-images.githubusercontent.com/66955409/87318699-aa6e2200-c563-11ea-99af-c0db3ede58bc.png" alt="고계함수2"></p>
+<ol start="4">
+<li>커링
+함수형 언어 Scalar</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">def</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">num1</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">Int</span>, <span style="color:#a6e22e">num2</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">Int</span>)<span style="color:#f92672">:</span><span style="color:#a6e22e">Int</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num2</span>;
+<span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+
+<span style="color:#a6e22e">def</span> <span style="color:#a6e22e">add_curry</span>(<span style="color:#a6e22e">num1</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Int</span>)(<span style="color:#a6e22e">num2</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Int</span>)<span style="color:#f92672">:</span><span style="color:#a6e22e">Int</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num2</span>
+<span style="color:#a6e22e">add_curry</span>(<span style="color:#ae81ff">2</span>)(<span style="color:#ae81ff">3</span>)
+<span style="color:#75715e">// 숫자 하나를 인자로 받는 함수의 실행모습
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">val</span> <span style="color:#a6e22e">add2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">add_curry</span>(<span style="color:#ae81ff">2</span>)(<span style="color:#a6e22e">_</span>)
+<span style="color:#a6e22e">add2</span>(<span style="color:#ae81ff">9</span>) <span style="color:#75715e">// 11 리턴
+</span></code></pre></div><p>여러 인자를 받는 함수에 일부 인자만 넣어서 나머지 인자를 받는 다른 함수를 만들어 낼 수 있는 함수프로그래밍 기법을 <em>커링</em>이라고 한다.<br>
+커링을 활용하면 모든 인자들이 준비되지 않았을 때 부분적용된 상태의 함수를 만들어내서 마련해두거나 다른 함수로 인자를 넘겨줄 수 있다.</p>
+<ol start="5">
+<li>함수 컴비네이터
+<img src="https://user-images.githubusercontent.com/66955409/87318719-b0fc9980-c563-11ea-990b-492999eab788.png" alt="함수컴비네이터1">
+<img src="https://user-images.githubusercontent.com/66955409/87318759-b8bc3e00-c563-11ea-8cdc-b30a2fc520ff.png" alt="함수컴비네이터2"></li>
+</ol>
 
 </div>
 
