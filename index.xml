@@ -6,10 +6,19 @@
     <description>Recent content on 창욱&#39;s 공부방</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jul 2020 23:10:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2020 23:47:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>함수형 프로그래밍이란?</title>
+      <link>https://changwookyang.github.io/post/funcprogramming/</link>
+      <pubDate>Mon, 13 Jul 2020 23:47:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/funcprogramming/</guid>
+      <description>함수형 프로그래밍이란? </description>
+    </item>
     
     <item>
       <title>DevOps란?</title>
