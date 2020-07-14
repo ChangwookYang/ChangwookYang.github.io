@@ -6,10 +6,20 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jul 2020 00:32:21 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2020 00:33:21 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>프로그래머스 12899 - 124나라의숫자</title>
+      <link>https://changwookyang.github.io/post/programmers12899/</link>
+      <pubDate>Wed, 15 Jul 2020 00:33:21 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/programmers12899/</guid>
+      <description>124 나라의 숫자 문제 설명
+124나라의 숫자 나의 풀이 public String solution(int n) { String answer = &amp;#34;&amp;#34;; while( n &amp;gt; 0 ){ String addNum = &amp;#34;&amp;#34;; if(n%3 == 0){ addNum = &amp;#34;4&amp;#34;; n = n/3-1; } else { addNum = String.</description>
+    </item>
     
     <item>
       <title>Lambda란?</title>
