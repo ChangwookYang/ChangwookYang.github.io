@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>창욱&#39;s 공부방</title>
+    <title>WOOKLOG</title>
     <link>https://changwookyang.github.io/</link>
-    <description>Recent content on 창욱&#39;s 공부방</description>
+    <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 13 Jul 2020 23:47:00 +0900</lastBuildDate>
@@ -18,10 +18,7 @@
       
       <guid>https://changwookyang.github.io/post/funcprogramming/</guid>
       <description>함수형 프로그래밍이란? 기존의 명령형 방식 : 너는 이걸하고 저걸 누구랑 어떻게 해서 어떠한 결과를 산출해 내라!
-함수형 형식 : 이거는 이거다!
- 함수형 프로그래밍의 특징  인풋과 아웃풋이 있다 외부 환경으로부터 철저히 독립적이다. 동일한 인풋에 있어서 언제나 동일한 아웃풋을 만든다.
-(순수함수 : 인풋이 같으면 아웃풋은 동일하다.)    어떤 함수의 동작에 의해 프로그램 내 특정 상태가 변경되는 상황이 발생할 수 있다.
-함수형 프로그래밍은 함수의 동작에 의한 함수의 동작에 의한 변수의 부수적인 값 변경을 원천 배제함으로써 오류를 방지한다.</description>
+함수형 형식 : 이거는 이거다!</description>
     </item>
     
     <item>
@@ -31,12 +28,7 @@
       
       <guid>https://changwookyang.github.io/post/devops/</guid>
       <description>DevOps란? 1. 등장 배경 개발만이 전부가 아니다. 프로젝트를 빌드하고 배포하고 테스트하는 운영업무도 해야 한다.
-만약, 두 개의 일을 다른 조직이 나눠서 관리하게 된다면 의사소통도 좋지 않고 비효율적인 면이 많을 것이다.
-그래서 등장한 것이 DevOps이다.
-2. DevOps란? DevOps는 소프트웨어 개발 방법론 중 하나이다.
-하나의 소프트웨어를 개발하기 위해 여러 명이 동시에 개발할 수 있는 환경도 필요하며(Dev)
-수천명의 사용자를 상대하는 서버, 스토리지, 운영체제 등 인프라 환경도 필요하다.(Ops)
-DevOps란 소프트웨어 개발자들과 IT종사자들 사이의 의사 소통, 협업, 융합을 강조한 소프트웨어 개발 방법론이다.</description>
+만약, 두 개의 일을 다른 조직이 나눠서 관리하게 된다면 의사소통도 좋지 않고 비효율적인 면이 많을 것이다.</description>
     </item>
     
     <item>
@@ -48,7 +40,7 @@ DevOps란 소프트웨어 개발자들과 IT종사자들 사이의 의사 소통
       <description>###` 도대체 Collection이란 무엇인가?!!
 너무 자주나오는데 잘 모름! 헷갈림!
 Java에서 Collection이란 데이터의 집합, 그룹을 의미한다!!!
-다음은 상속구조를 나타낸다!! Collection이 다 상속했다!! Map의 경우에는 Collection으로 상속받고 있지 않지만 Collection으로 분류된다.  Collection 인터페이스 공통 메소드 중, iterator() 메소드  Iterator&amp;lt;E&amp;gt; iterator() // 현재 콜렉션에 포함되어 있는 요소를 반복적으로 가져오기 위해 Iterator 인스턴스를 반환한다. Iterator &amp;lt;string&amp;gt; itr = list.iterator(); // 모든 컬렉션 안에는 iterator메소드가 있다!! while(itr.hasNext()){ String str = itr.next(); sysout(str); }  Vector 배열 사용 시 배열의 크기를 벗어나는 인덱스를 접근하면 에러가 발생한다.</description>
+다음은 상속구조를 나타낸다!! Collection이 다 상속했다!</description>
     </item>
     
     <item>
@@ -58,15 +50,7 @@ Java에서 Collection이란 데이터의 집합, 그룹을 의미한다!!!
       
       <guid>https://changwookyang.github.io/post/backtracking/</guid>
       <description>Backtracking 이란? 어떤 노드의 유망성 점검 후, 유망하지 않으면 그 노드의 부모노드로 되돌아간 후 다른 자손노드를 검색
-KEYWORD ! &amp;ldquo;배제&amp;rdquo;, &amp;ldquo;풀이 시간 단축&amp;rdquo;
-유망하지 않으면 배제를 하고 부모노드로 되돌아가면서 풀이 시간을 단축!!
-Backtracking의 가장 유명한 예제 중 하나인 4-Queens Problem!
-4-Queens Problem은 4개의 Queen을 서로 상대방을 위협하지 않도록 4*4 체스판에 위치시키는 문제이다.
-좌측최상단이 (1,1)이다.
-)
-되추적은 깊이우선탐색(Depth-First Search)과 마찬가지로 스택을 사용한다!
-깊이우선탐색은 (1,1) 노도의 자식인 (2,1),(2,2),(2,3),(2,4)를 스택에 넣을 것이다.
-하지만!! 되추적은 (2,1),(2,2)를 스택에 넣지 않는다.</description>
+KEYWORD ! &amp;ldquo;배제&amp;rdquo;, &amp;ldquo;풀이 시간 단축&amp;rdquo;</description>
     </item>
     
     <item>
@@ -84,7 +68,7 @@ Backtracking의 가장 유명한 예제 중 하나인 4-Queens Problem!
       <pubDate>Wed, 08 Jul 2020 00:32:21 +0900</pubDate>
       
       <guid>https://changwookyang.github.io/post/spring/</guid>
-      <description>Spring 프래임워크란? IoC와 AOP를 지원하는 경량의 컨테이너 프레임워크 - 경량(두 가지 이유)  1. 모듈들이 jar파일로 묶여있다.2. POJO(Plain Old Java Object) 지원하여 형식 제약이 없다ex) Servlet 같은 경우는 doGet, doPost 등의 제약이 있는 것이 차이점 - 컨테이너  객체의 인스턴스 생성, 생명주기를 관리프로그래머가 작성한 코드를 스스로 참조한 뒤 알아서 객체의 생성과 소멸을 컨트롤해준다. - IoC(Inversion of Conversion, 제어의 역행)  Dependency Injection을 제공!ex) 다음 코드를 스프링으로 설정할 수 있다.</description>
+      <description>Spring 프래임워크란? IoC와 AOP를 지원하는 경량의 컨테이너 프레임워크 - 경량(두 가지 이유)  1. 모듈들이 jar파일로 묶여있다.2. POJO(Plain Old Java Object) 지원하여 형식 제약이 없다ex) Servlet 같은 경우는 doGet, doPost 등의 제약이 있는 것이 차이점 - 컨테이너  객체의 인스턴스 생성, 생명주기를 관리프로그래머가 작성한 코드를 스스로 참조한 뒤 알아서 객체의 생성과 소멸을 컨트롤해준다.</description>
     </item>
     
   </channel>
