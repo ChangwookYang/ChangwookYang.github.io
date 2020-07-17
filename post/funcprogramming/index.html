@@ -146,7 +146,7 @@
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">say_it</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">given</span>) =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">given</span>);
 </code></pre></div><p>순수함수의 경우 인자값에 대한 정해진 값을 리턴해주기 때문에 함수를 값으로 생각할 수 있다.</p>
 <ol start="3">
-<li>고계함수
+<li>고계함수<br>
 함수를 값으로 볼 수 있다면 함수도 다른 함수의 인자로 넣어줄 수 있다.<br>
 다른 함수를 인자로 받거나 다른 함수를 반환하는 함수를 고계함수라 한다.</li>
 </ol>
@@ -169,7 +169,7 @@
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">multiply2</span>(<span style="color:#ae81ff">3</span>) <span style="color:#75715e">// 6 리턴
 </span></code></pre></div><p><img src="https://user-images.githubusercontent.com/66955409/87318699-aa6e2200-c563-11ea-99af-c0db3ede58bc.png" alt="고계함수2"></p>
 <ol start="4">
-<li>커링
+<li>커링<br>
 함수형 언어 Scalar</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">def</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">num1</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">Int</span>, <span style="color:#a6e22e">num2</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">Int</span>)<span style="color:#f92672">:</span><span style="color:#a6e22e">Int</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num2</span>;
@@ -183,7 +183,7 @@
 </span></code></pre></div><p>여러 인자를 받는 함수에 일부 인자만 넣어서 나머지 인자를 받는 다른 함수를 만들어 낼 수 있는 함수프로그래밍 기법을 <em>커링</em>이라고 한다.<br>
 커링을 활용하면 모든 인자들이 준비되지 않았을 때 부분적용된 상태의 함수를 만들어내서 마련해두거나 다른 함수로 인자를 넘겨줄 수 있다.</p>
 <ol start="5">
-<li>함수 컴비네이터
+<li>함수 컴비네이터<br>
 <img src="https://user-images.githubusercontent.com/66955409/87318719-b0fc9980-c563-11ea-990b-492999eab788.png" alt="함수컴비네이터1">
 <img src="https://user-images.githubusercontent.com/66955409/87318759-b8bc3e00-c563-11ea-8cdc-b30a2fc520ff.png" alt="함수컴비네이터2"></li>
 </ol>
