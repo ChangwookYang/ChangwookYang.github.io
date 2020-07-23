@@ -6,10 +6,20 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Jul 2020 23:32:41 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2020 23:10:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dynamic Programming</title>
+      <link>https://changwookyang.github.io/post/dp/</link>
+      <pubDate>Thu, 23 Jul 2020 23:10:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/dp/</guid>
+      <description>DP를 정리해보자  DP란? Dynamic programming! 동적프로그래밍은 기억하기 프로그래밍이라는 용어를 쓴다.
+DP를 공부하고 느낀점으로는, 잘 기억해놨다가 잘 가져다쓰는(점화식 활용) 것이 중요하다!</description>
+    </item>
     
     <item>
       <title>전화번호 목록(프로그래머스 42577)</title>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>Dynamic Programming &middot; WOOKLOG</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Dynamic Programming">
+<meta itemprop="description" content="DP를 정리해보자  DP란? Dynamic programming! 동적프로그래밍은 기억하기 프로그래밍이라는 용어를 쓴다.
+DP를 공부하고 느낀점으로는, 잘 기억해놨다가 잘 가져다쓰는(점화식 활용) 것이 중요하다!">
+<meta itemprop="datePublished" content="2020-07-23T23:10:00&#43;09:00" />
+<meta itemprop="dateModified" content="2020-07-23T23:10:00&#43;09:00" />
+<meta itemprop="wordCount" content="855">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dynamic Programming"/>
+<meta name="twitter:description" content="DP를 정리해보자  DP란? Dynamic programming! 동적프로그래밍은 기억하기 프로그래밍이라는 용어를 쓴다.
+DP를 공부하고 느낀점으로는, 잘 기억해놨다가 잘 가져다쓰는(점화식 활용) 것이 중요하다!"/>
+
+
+<meta property="og:title" content="Dynamic Programming" />
+<meta property="og:description" content="DP를 정리해보자  DP란? Dynamic programming! 동적프로그래밍은 기억하기 프로그래밍이라는 용어를 쓴다.
+DP를 공부하고 느낀점으로는, 잘 기억해놨다가 잘 가져다쓰는(점화식 활용) 것이 중요하다!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/dp/" />
+<meta property="article:published_time" content="2020-07-23T23:10:00+09:00" />
+<meta property="article:modified_time" content="2020-07-23T23:10:00+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>WOOKLOG</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Dynamic Programming</h1>
+
+  <div class="post-date">
+    <time datetime="2020-07-23T23:10:00&#43;0900">Jul 23, 2020</time>
+  </div>
+
+  <h3 id="dp를-정리해보자"><strong>DP</strong>를 정리해보자</h3>
+<hr>
+<h4 id="dp란">DP란?</h4>
+<p>Dynamic programming! 동적프로그래밍은 기억하기 프로그래밍이라는 용어를 쓴다.<br>
+DP를 공부하고 느낀점으로는, 잘 기억해놨다가 잘 가져다쓰는(점화식 활용) 것이 중요하다!</p>
+<p>잘 기억하는 방법 중 하나로 <strong>메모이제이션</strong>이 있는데 동적 프로그래밍 중 하나이다.<br>
+재귀 호출 시, 반복적으로  계산되는 것들의 계산 횟수를 줄이기 위해<br>
+<strong>이전에 계산했던 값을 저장해두었다가 나중에 재사용하는 방법</strong>이다.</p>
+<hr>
+<p><strong>DP 적용의 조건 : 최적의 원리</strong></p>
+<p>어떤 케이스의 최적해가<br>
+그 케이스를 <strong>분할한 케이스에 대한 최적해를 항상 포함</strong>하고 있으면
+최적의 원리가 성립한다.<br>
+즉, 점화식 표현이 가능하다.</p>
+<hr>
+<p>DP의 대표적 문제 3가지를 알아보자.</p>
+<ol>
+<li>막대기 자르기</li>
+<li>최장 공통 부분 수열문제 LCS</li>
+<li>0/1 배낭문제</li>
+</ol>
+<hr>
+<h4 id="막대기-자르기">막대기 자르기</h4>
+<p>Q. 하나의 막대기가 있다. 막대기를 자르는데 나오는 조각마다 가격이 다르다.<br>
+막대기를 잘라 가장 높은 가격을 만들어라.</p>
+<table>
+<thead>
+<tr>
+<th>길이(i)</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>길이당 가격(Pi)</td>
+<td>0</td>
+<td>1</td>
+<td>5</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>17</td>
+<td>20</td>
+<td>20</td>
+<td>24</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>예제1) 길이가 4인 막대기 최대 가격은 길이 2인 막대기 두개로 P2+P2 = 10</p>
+<p>예제2) 길이가 6인 막대기의 최대가격은 P6 = 17 이다.</p>
+<h5 id="알고리즘-풀이">알고리즘 풀이</h5>
+<p>길이가 n인 막대기의 최대가격을  Rn이라 할 때 아래 식이 성립한다.</p>
+<blockquote>
+<p>Rn = max(Pi + R n-i) (i는 1부터 n까지)</p>
+</blockquote>
+<p>즉 i가 1부터 n까지인 값들을 반복하면서 최대값을 찾는다.</p>
+<p>R6를 구해보자.</p>
+<p>R6 = max(P1 + <strong>R5</strong>, P2 + <strong>R4</strong>, P3 + <strong>R3</strong>, P4 + <strong>R2</strong>, P5 + <strong>R1</strong>, P6 + <strong>R0</strong>)</p>
+<p>R6를 구하긴 위해선 R0, R1, R2, R3, R4, R5 값들을 알고 있어야한다.</p>
+<p>R5를 구하기위해선 R4도 알아야하는데 <em>피보나치처럼 반복해서 Rn을 계산</em>하는 것을 알 수 있다.</p>
+<p>따라서 Rn을 메모리제이션할 수 있다.</p>
+<p>Rn을 구하는 소스는 아래와 같다!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getMaxVal</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> p<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> n<span style="color:#f92672">){</span>
+	<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>n<span style="color:#f92672">+</span>1<span style="color:#f92672">];</span>
+	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>1<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;=</span>n <span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+		<span style="color:#66d9ef">int</span> max <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span>1<span style="color:#f92672">;</span> j<span style="color:#f92672">&lt;=</span> i<span style="color:#f92672">;</span> j<span style="color:#f92672">++){</span>
+			max <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>max<span style="color:#f92672">,</span> p<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> r<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span>j<span style="color:#f92672">]);</span>
+		<span style="color:#f92672">}</span>
+		r<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> max<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">return</span> r<span style="color:#f92672">[</span>n<span style="color:#f92672">];</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><hr>
+<h4 id="최장-공통부분-수열문제-lcs">최장 공통부분 수열문제 (LCS)</h4>
+<p>Q. 두 개의 문자열에서 순서대로 겹치는 문자가 최대 몇 개 인가?</p>
+<p>예제)  두개의 문자열<br>
+<strong>ABCBDAB	BDCABA</strong></p>
+<p>두 문자열의 순서대로 겹치는 문자의 수는 최대 4개이고 경우의 수는 3가지 이다.</p>
+<p>A<strong>BC</strong>BD<strong>AB</strong>	<strong>B</strong>D<strong>CAB</strong>A</p>
+<blockquote>
+<p>LCS : BCAB</p>
+</blockquote>
+<p>A<strong>BCB</strong>D<strong>A</strong>B	<strong>B</strong>D<strong>C</strong>A<strong>BA</strong></p>
+<blockquote>
+<p>LCS : BCBA</p>
+</blockquote>
+<p>ABC<strong>BDAB</strong>	<strong>BD</strong>C<strong>AB</strong>A</p>
+<blockquote>
+<p>LCS : BDAB</p>
+</blockquote>
+<p>이처럼 앞에서부터 겹치는 것들을 찾아 문자열을 만들 때 가장 긴 것이 LCS이다.</p>
+<h5 id="알고리즘-풀이-1">알고리즘 풀이</h5>
+<blockquote>
+<p>TIP : DP는 맨 처음부터 순서대로 계산하면서 패턴을 알수 있다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>B</th>
+<th>D</th>
+<th>C</th>
+<th>A</th>
+<th>B</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>A</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td><!-- raw HTML omitted --><strong>1</strong><!-- raw HTML omitted --></td>
+<td><!-- raw HTML omitted --><strong>1</strong><!-- raw HTML omitted --></td>
+<td><!-- raw HTML omitted --><strong>1</strong><!-- raw HTML omitted --></td>
+</tr>
+</tbody>
+</table>
+<p>ABCBDAB의 첫번째 A로만 두번째 문자열 BDCABA와 비교했을때 LCS는 1이다.</p>
+<p>(A, BDCA), (A,BDCAB), (A, BDCABA)의 LCS는 <strong>1</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>B</th>
+<th>D</th>
+<th>C</th>
+<th>A</th>
+<th>B</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td><!-- raw HTML omitted --><strong>1</strong><!-- raw HTML omitted --></td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td><strong><!-- raw HTML omitted -->2<!-- raw HTML omitted --></strong></td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>표를 구할 때 B, B 처럼 같은 값이 나오면 이전까지의 LCS 길이에 +1을 해준다.</p>
+<p>이전까지의 LCS 길이란 대각선 (왼쪽 위) 값을 말한다.<br>
+대각선에서 +1하는 것은 두 문자를 비교하기전의 LCS길이에 +1 하는것이다.</p>
+<p>(AB, BDCAB) -&gt; (A, BDCA) + 1</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>B</th>
+<th>D</th>
+<th>C</th>
+<th>A</th>
+<th>B</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td><strong>1</strong></td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td><strong>2</strong></td>
+<td><!-- raw HTML omitted --><strong>2</strong><!-- raw HTML omitted --></td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>(ABC, BDCA)와 같이 각각 마지막 문자가 다른 경우에는 비교한 문자가 포함되어있는 직전 LCS를 가지고온다.</p>
+<p>표에서는 위와 왼쪽 값 중에서 큰 값이 오게된다. (LCS는 최대값을 구하는 것이므로 두 케이스에서 최대인 값을 가져온다!)</p>
+<p>(ABC, BDCA) -&gt; MAX((ABC, BDC), (AB, BDCA))</p>
+<p>따라서 표의 값을 구하는 규칙은</p>
+<ol>
+<li>
+<p>문자열[n], 문자열[k]가 같다면 [n, k] == [n-1, k-1] + 1</p>
+</li>
+<li>
+<p>문자열[n], 문자열[k]가 다르면 [n, k] == [n-1, k], [n, k-1] 중 큰 값을 가져온다.</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>1 <span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+	max <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+	table<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span>1<span style="color:#f92672">;</span> j<span style="color:#f92672">&lt;</span> str2<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> j<span style="color:#f92672">++){</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>str1<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> str2<span style="color:#f92672">[</span>j<span style="color:#f92672">]){</span>
+			max <span style="color:#f92672">=</span> table<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span>1<span style="color:#f92672">][</span>j<span style="color:#f92672">-</span>1<span style="color:#f92672">]+</span>1<span style="color:#f92672">;</span>
+			table<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> max<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>table<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">-</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;</span> table<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span>1<span style="color:#f92672">][</span>j<span style="color:#f92672">])</span>
+				table<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> table<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">-</span>1<span style="color:#f92672">];</span>
+			<span style="color:#66d9ef">else</span> 
+				table<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> table<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span>1<span style="color:#f92672">][</span>j<span style="color:#f92672">];</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><hr>
+<h4 id="01-배낭문제">0/1 배낭문제</h4>
+<p>Q. 도둑이 보석가게에 배낭을 매고 들어왔다.<br>
+배낭 최대 용량은 W이며 보석의 무게와 가치는 다르다. 담을 수 있는 최대 가격은?</p>
+<h5 id="최적의-원리-성립-체크-최적해가-부분-사례의-최적해를-포함하는가">최적의 원리 성립 체크 (최적해가 부분 사례의 최적해를 포함하는가?)</h5>
+<p>집합 A를 n개의 보석 중에서 최적으로 고른 부분 집합이라 하자.</p>
+<ol>
+<li>집합 A가 n번째 보석을 <strong>포함하지 않으면</strong>  n-1개 보석들과의 최적의 값과 같다.</li>
+<li>집합 A가 n번쨰 보석을 <strong>포함한다면</strong> n포함 보석들의 총가격은 n-1개의 값에서 n의 가격을 더한 값과 같다.</li>
+</ol>
+<blockquote>
+<p>P[i, w]  : i 개의 보석, 무게한도 w일 때 최대 가격</p>
+<ol>
+<li>
+<p>포함하지 않을경우 : P[i, w] = P[i-1, w]</p>
+</li>
+<li>
+<p>포함할 경우 : max( Vi + P[i-1, w - wi], P[i-1, w])</p>
+</li>
+</ol>
+<p>​						Vi는 V번째 보석의 값</p>
+<p>​					    i번째 보석을 넣었을 때 wi 무게를 넣을만큼의 공간을 확보하고 이전 케이스와 최대값을 비교!</p>
+</blockquote>
+<h5 id="알고리즘-풀이-2">알고리즘 풀이</h5>
+<table>
+<thead>
+<tr>
+<th>보석 무게(wi)</th>
+<th>값(Vi)</th>
+<th>i</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2kg</td>
+<td>3$</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3kg</td>
+<td>4$</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4kg</td>
+<td>5$</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5kg</td>
+<td>6$</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>표를 그려보면 아래와 같다.</p>
+<table>
+<thead>
+<tr>
+<th align="right">i \ w</th>
+<th align="right">0</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right"><strong><!-- raw HTML omitted -->3<!-- raw HTML omitted --></strong></td>
+<td align="right">4</td>
+<td align="right"><strong><!-- raw HTML omitted -->4<!-- raw HTML omitted --></strong></td>
+<td align="right">7</td>
+</tr>
+</tbody>
+</table>
+<p>(i, w)가 (2, 2)일 때 이미 i=1 보석이 들어가 있다.</p>
+<p>i=2 보석이 들어가기 위해선 3kg이 필요한데 가방의 최대무게 w가 2이므로 P[i-1, w]에 해당하여 값은 3이다.</p>
+<p>(i, w)가 (2, 4)일 때 i=2 보석이 들어갈 수 있게 되는데</p>
+<p>i=1 보석이 들어가 있을 때와 ( P[i-1, w] )</p>
+<p>i=2 보석을 넣을 수 있을 만큼의 공간을 확보하고 i=2 보석을 넣었을때 V2 + P[1, 1] 가치를 비교하여 max값을 선택한다!</p>
+<p>Vi + P[i-1, w-wi] 이므로 V2 + P[2 - 1, 4 - 3]이다. 표에서 P[1,1] 은 0이므로 V2+0 = 4가 된다.</p>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "wookchangyang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-172670101-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
