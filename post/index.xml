@@ -6,10 +6,20 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2020 23:10:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2020 11:30:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>프로그래머스 43105, 정수삼각형</title>
+      <link>https://changwookyang.github.io/post/programmers43105/</link>
+      <pubDate>Sat, 25 Jul 2020 11:30:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/programmers43105/</guid>
+      <description>프로그래머스 43105, 정수삼각형 문제 링크  동적 프로그래밍 문제이다. 점화식을 알면 생각보다 쉽게 풀수 있다!
+각 행의 합은 (이전 행 열인덱스-1), (이전행의 열인덱스)까지의 합 중 최대값을 가져오면 된다.</description>
+    </item>
     
     <item>
       <title>Dynamic Programming</title>
