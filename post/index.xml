@@ -6,10 +6,21 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jul 2020 11:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jul 2020 22:20:21 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LRU 알고리즘</title>
+      <link>https://changwookyang.github.io/post/lru/</link>
+      <pubDate>Sun, 26 Jul 2020 22:20:21 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/lru/</guid>
+      <description>LRU 알고리즘  Least Recently Used Algorithm
+ Cache 알고리즘 중에 가장 유명한 알고리즘 중 하나로 LRU알고리즘이 있다.
+캐시의 리소스 양은 제한되어 있고 제한된 리소스 내에서 데이터를 빠르게 저장하고 접근해야한다.</description>
+    </item>
     
     <item>
       <title>프로그래머스 43105, 정수삼각형</title>
