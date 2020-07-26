@@ -17,7 +17,7 @@
 캐시의 리소스 양은 제한되어 있고 제한된 리소스 내에서 데이터를 빠르게 저장하고 접근해야한다.">
 <meta itemprop="datePublished" content="2020-07-26T22:20:21&#43;09:00" />
 <meta itemprop="dateModified" content="2020-07-26T22:20:21&#43;09:00" />
-<meta itemprop="wordCount" content="295">
+<meta itemprop="wordCount" content="299">
 
 
 
@@ -169,15 +169,15 @@
 	<span style="color:#f92672">}</span>
 	
 	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>ListNode node<span style="color:#f92672">){</span>
-		node<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>	<span style="color:#75715e">// 이전 노드가 
-</span><span style="color:#75715e"></span>		node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">;</span>
+		node<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+		node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">;</span>
 		nodeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">key</span><span style="color:#f92672">);</span>	<span style="color:#75715e">// map에서 제거
 </span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
 	
 	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insertToHead</span><span style="color:#f92672">(</span>ListNode node<span style="color:#f92672">){</span>
 		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">head</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">;</span>
 		node<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">head</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
-		node<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">head</span><span style="color:#f92672">;</span>	<span style="color:#75715e">// 포인터용 head 노드가 존재한다.
+		node<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">head</span><span style="color:#f92672">;</span>	<span style="color:#75715e">// 데이터가 없는 포인터용 head 노드가 존재한다.
 </span><span style="color:#75715e"></span>		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">head</span><span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> node<span style="color:#f92672">;</span>
 		nodeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>node<span style="color:#f92672">.</span><span style="color:#a6e22e">key</span><span style="color:#f92672">,</span> node<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>
@@ -199,8 +199,8 @@
 			remove<span style="color:#f92672">(</span>oldNode<span style="color:#f92672">);</span>
 		<span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
 			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>nodeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">&gt;=</span> capacity<span style="color:#f92672">){</span>
-				ListNode tailNode <span style="color:#f92672">=</span> tail<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">;</span>
-				remove<span style="color:#f92672">(</span>tailNode<span style="color:#f92672">);</span>
+				ListNode tailNode <span style="color:#f92672">=</span> tail<span style="color:#f92672">.</span><span style="color:#a6e22e">prev</span><span style="color:#f92672">;</span>	<span style="color:#75715e">// 더블링크드리스트 형태를 쓰는 이유
+</span><span style="color:#75715e"></span>				remove<span style="color:#f92672">(</span>tailNode<span style="color:#f92672">);</span>
 			<span style="color:#f92672">}</span>
 		<span style="color:#f92672">}</span>
 		insertToHead<span style="color:#f92672">(</span>newNode<span style="color:#f92672">);</span>
