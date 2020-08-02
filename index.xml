@@ -6,10 +6,21 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2020 22:30:21 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 23:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PathVariable &amp; QueryParameter</title>
+      <link>https://changwookyang.github.io/post/springboot_20200802/</link>
+      <pubDate>Sun, 02 Aug 2020 23:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/springboot_20200802/</guid>
+      <description>스프링와 스프링부트 참고링크
+스프링은 무엇인가? 스프링 프레임워크는 자바 생태계에서 가장 대중적인 응용프로그램 개발 프레임워크이다.
+1. 의존성 주입(DI) &amp;amp; 제어의 역전(Ioc) 의존성 주입(DI, Dependency Injection)과 제어의 역전(Inversion of Control)은 스프링에서 가장 중요한 특징 중 하나이다.</description>
+    </item>
     
     <item>
       <title>PathVariable &amp; QueryParameter</title>
