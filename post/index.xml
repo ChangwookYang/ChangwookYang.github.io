@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>PathVariable &amp; QueryParameter</title>
+      <title>스프링과 스프링부트</title>
       <link>https://changwookyang.github.io/post/springboot_20200802/</link>
       <pubDate>Sun, 02 Aug 2020 23:00:00 +0900</pubDate>
       
       <guid>https://changwookyang.github.io/post/springboot_20200802/</guid>
-      <description>스프링와 스프링부트 참고링크
+      <description>스프링과 스프링부트 참고링크
 스프링은 무엇인가? 스프링 프레임워크는 자바 생태계에서 가장 대중적인 응용프로그램 개발 프레임워크이다.
 1. 의존성 주입(DI) &amp;amp; 제어의 역전(Ioc) 의존성 주입(DI, Dependency Injection)과 제어의 역전(Inversion of Control)은 스프링에서 가장 중요한 특징 중 하나이다.</description>
     </item>
