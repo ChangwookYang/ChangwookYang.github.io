@@ -6,10 +6,20 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Aug 2020 23:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2020 23:30:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ElasticSearch 기본 동작 이해</title>
+      <link>https://changwookyang.github.io/post/elasticsearch/</link>
+      <pubDate>Mon, 03 Aug 2020 23:30:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/elasticsearch/</guid>
+      <description>ElasticSearch 기본 동작 이해 참고링크
+1. ElasticSearch란? ElasticSearch는 오픈 소스이고 REST 기반의 실시간 검색 및 분석 엔진이다. Java로 작성되어졌으며 아파치 Lucene기반으로 검색 및 REST-Based API를 지원한다.</description>
+    </item>
     
     <item>
       <title>스프링과 스프링부트</title>
