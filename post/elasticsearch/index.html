@@ -5,36 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.73.0" />
 
-  <title>ElasticSearch 기본 동작 이해 &middot; WOOKLOG</title>
+  <title> &middot; WOOKLOG</title>
 
   <meta name="description" content="" />
 
   
 
-<meta itemprop="name" content="ElasticSearch 기본 동작 이해">
+<meta itemprop="name" content="">
 <meta itemprop="description" content="ElasticSearch 기본 동작 이해 참고링크
-ElasticSearch는 오픈 소스이고 REST 기반의 실시간 검색 및 분석 엔진이다. Java로 작성되어졌으며 아파치 Lucene기반으로 검색 및 REST-Based API를 지원한다.">
-<meta itemprop="datePublished" content="2020-08-03T22:40:00&#43;09:00" />
-<meta itemprop="dateModified" content="2020-08-03T22:40:00&#43;09:00" />
-<meta itemprop="wordCount" content="353">
+1. ElasticSearch란? ElasticSearch는 오픈 소스이고 REST 기반의 실시간 검색 및 분석 엔진이다. Java로 작성되어졌으며 아파치 Lucene기반으로 검색 및 REST-Based API를 지원한다.">
+
+<meta itemprop="wordCount" content="797">
 
 
 
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ElasticSearch 기본 동작 이해"/>
+<meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="ElasticSearch 기본 동작 이해 참고링크
-ElasticSearch는 오픈 소스이고 REST 기반의 실시간 검색 및 분석 엔진이다. Java로 작성되어졌으며 아파치 Lucene기반으로 검색 및 REST-Based API를 지원한다."/>
+1. ElasticSearch란? ElasticSearch는 오픈 소스이고 REST 기반의 실시간 검색 및 분석 엔진이다. Java로 작성되어졌으며 아파치 Lucene기반으로 검색 및 REST-Based API를 지원한다."/>
 
 
-<meta property="og:title" content="ElasticSearch 기본 동작 이해" />
+<meta property="og:title" content="" />
 <meta property="og:description" content="ElasticSearch 기본 동작 이해 참고링크
-ElasticSearch는 오픈 소스이고 REST 기반의 실시간 검색 및 분석 엔진이다. Java로 작성되어졌으며 아파치 Lucene기반으로 검색 및 REST-Based API를 지원한다." />
+1. ElasticSearch란? ElasticSearch는 오픈 소스이고 REST 기반의 실시간 검색 및 분석 엔진이다. Java로 작성되어졌으며 아파치 Lucene기반으로 검색 및 REST-Based API를 지원한다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://changwookyang.github.io/post/elasticsearch/" />
-<meta property="article:published_time" content="2020-08-03T22:40:00+09:00" />
-<meta property="article:modified_time" content="2020-08-03T22:40:00+09:00" />
+
 
 
 
@@ -103,43 +101,213 @@ ElasticSearch는 오픈 소스이고 REST 기반의 실시간 검색 및 분석 
 
   <main class="content container">
   <div class="post">
-  <h1>ElasticSearch 기본 동작 이해</h1>
+  <h1></h1>
 
   <div class="post-date">
-    <time datetime="2020-08-03T22:40:00&#43;0900">Aug 3, 2020</time>
+    <time datetime="0001-01-01T00:00:00Z">Jan 1, 0001</time>
   </div>
 
   <h3 id="elasticsearch-기본-동작-이해">ElasticSearch 기본 동작 이해</h3>
-<p><a href="https://lng1982.tistory.com/283">참고링크</a></p>
+<p><a href="https://victorydntmd.tistory.com/308">참고링크</a></p>
+<h4 id="1-elasticsearch란">1. ElasticSearch란?</h4>
 <p>ElasticSearch는 오픈 소스이고 <strong>REST 기반의 실시간 검색 및 분석 엔진</strong>이다.
 Java로 작성되어졌으며 아파치 Lucene기반으로 검색 및 REST-Based API를 지원한다.</p>
-<h4 id="elasticsearch-저장-구조">ElasticSearch 저장 구조</h4>
-<p>Index, Type, Document, Field, Mapping 용어들이 존재한다.</p>
+<hr>
+<p>ElasticSearch는 Apache Lucene(아파치 루씬) 기반의 Java 오픈소스 분산 검색엔진이다.
+Elasticsearch를 통해 루씬 라이브러리를 단독으로 사용할 수 있게 되었으며, 
+방대한 양의 데이터를 신속하게, **거의 실시간(NRT, Near Real Time)**으로 저장, 검색, 분석할 수 있다.</p>
 <ul>
-<li>Index란?
+<li><strong>Logstash</strong>
+<ul>
+<li>다양한 소스(DB, csv파일 등)의 로그 또는 트랜잭션 데이터를 수집, 집계, 파싱하여 ElasticSearch로 전달</li>
+</ul>
+</li>
+<li><strong>Elasticsearch</strong>
+<ul>
+<li>Logtash로부터 받은 데이터를 검색 및 집계하여 필요한 관심정보를 획득</li>
+</ul>
+</li>
+<li><strong>Kibana</strong>
+<ul>
+<li>Elasticsearch의 빠른 검색을 통해 데이터를 시각화 및 모니터링</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=http%3A%2F%2Fcfile5.uf.tistory.com%2Fimage%2F993B7E495C98CAA7064E0B" alt="이미지"></p>
+<h4 id="2-elasticsearch와-관계형-db비교">2. Elasticsearch와 관계형 DB비교</h4>
+<p>관계형 DB는 ElasticSearch에서 다음과 같이 대응시킬 수 있습니다.
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F998444375C98CC021F2221" alt="이미지"></p>
+<table>
+<thead>
+<tr>
+<th>Relational Database</th>
+<th>Elastic Search</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database</td>
+<td>Index</td>
+</tr>
+<tr>
+<td>Table</td>
+<td>Type</td>
+</tr>
+<tr>
+<td>Row</td>
+<td>Document</td>
+</tr>
+<tr>
+<td>Column</td>
+<td>Field</td>
+</tr>
+<tr>
+<td>Index</td>
+<td>Analyze</td>
+</tr>
+<tr>
+<td>Primary key</td>
+<td>_id</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Mapping</td>
+</tr>
+<tr>
+<td>Physical partition</td>
+<td>Shard</td>
+</tr>
+<tr>
+<td>Logical Partition</td>
+<td>Route</td>
+</tr>
+<tr>
+<td>Relational</td>
+<td>Parent/Child, Nested</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>Query DSL</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-elasticsearch-아키텍쳐--용어-정리">3. ElasticSearch 아키텍쳐 / 용어 정리</h4>
+<p>ElasticSearch에서 사용하는 대부분의 개념은 RDBMS에도 존재하는 개념들이다.
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=http%3A%2F%2Fcfile27.uf.tistory.com%2Fimage%2F99A97A355C98D42D2E5196" alt="이미지"></p>
+<p><strong>1) 클러스터 (cluster)</strong>
+클러스터란 Elasticsearch에서 가장 큰 시스템 단위로 하나 이상의 <strong>노드로 이루어진 집합</strong>이다.
+서로 다른 클러스터는 데이터의 접근, 교환할 수 없는 독립적인 시스템이며
+여러 대의 서버가 하나의 클러스터를 구성할 수 있고, 한 서버에 여러개 클러스터가 존재할 수 있다.</p>
+<p><strong>2) 노드 (node)</strong>
+Elasticsearch를 구성하는 하나의 단위 프로세스를 의미한다.
+그 역할에 따라 Master-eligible, Data, Ingest, Tribe 노드로 구분할 수 있다.</p>
+<ul>
+<li>master-eligible node
+<ul>
+<li>클러스터를 제어하는 마스터로 선택할 수 있는 노드</li>
+<li>인덱스 생성, 삭제</li>
+<li>클러스터 노드들의 추적, 관리</li>
+<li>데이터 입력 시 어느 샤드에 할당할 것인지</li>
+</ul>
+</li>
+<li>Data node
+<ul>
+<li>데이터와 관련된 CRUD 작업과 관련있는 노드</li>
+<li>CPU, 메모리 등 자원을 많이 소모하므로 모니터링이 필요하며, master노드와 분리하는게 좋다.</li>
+</ul>
+</li>
+<li>Ingest node
+<ul>
+<li>데이터를 변환하는 등 사전 처리 파이프라인을 실행하는 역할</li>
+</ul>
+</li>
+<li>Coordination only node
+<ul>
+<li>data node와 master-eligible node의 일을 대신하는 노드</li>
+<li>대규모 클러스터에서 큰 이점을 갖는다.</li>
+<li>로드밸런서와 비슷한 역할을 한다.</li>
+</ul>
+</li>
+</ul>
+<p><strong>3) 인덱스(index) / 샤드(Shard) / 복제(Replica)</strong>
+Elasticsearch에서 index는 RDBMS에서 database와 대응하는 개념이다.
+shard와 replica는 Elastic Search뿐만 아니라 분산데이터베이스 시스템에도 존재하는 개념이다.</p>
+<p>**샤딩(sharding)**은 데이터를 분산해서 저장하는 방법을 의미한다.
+즉, Elasticsearch에서 <strong>스케일아웃을 위해 index를 여러 shard로 쪼갠것</strong>이다.
+기본적으로 1개가 존재하며, 검색 성능 향상을 위해 클러스터의 샤드 갯수를 조정하는 튜닝을 하기도한다.</p>
+<p>**복제(Replica)**는 또다른 형태의 shard라고 할 수 있다.
+노드를 손실했을 경우 데이터의 <strong>신뢰성을 위해 샤드들을 복제</strong>하는 것이다.
+따라서 replica는 서로 다른 노드에 존재할 것을 권장한다.</p>
+<h4 id="4-elasticsearch의-특징">4. ElasticSearch의 특징</h4>
+<ul>
+<li>
+<p><strong>Scale out</strong></p>
+<ul>
+<li>샤드를 통해 규모가 수평적으로 늘어날 수 있음</li>
+</ul>
+</li>
+<li>
+<p><strong>고가용성</strong></p>
+<ul>
+<li>Replica를 통해 데이터의 안정성을 보장</li>
+</ul>
+</li>
+<li>
+<p><strong>Schema Free</strong></p>
+<ul>
+<li>JSON문서를 통해 데이터 검색을 수행하므로 스키마 개념이 없다.</li>
+</ul>
+</li>
+<li>
+<p><strong>Restful</strong></p>
+<ul>
+<li>데이터 CRUD 작업은 HTTP Restful API를 통해 수행한다.(GET/POST/PUT/DELETE)</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-역색인">5. 역색인</h4>
+<p>Elasticsearch가 빠른 이유는 **inverted index(역색인)**에 있다.
+index는 책에서 맨 앞에 볼 수 있는 목차이고,
+책 맨 뒤에 키워드마다 찾아볼 수 있도록하는 찾아보기가 inverted  index이다.
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=http%3A%2F%2Fcfile1.uf.tistory.com%2Fimage%2F996B89405C98CC491ED01C" alt="이미지"></p>
+<p>Elasticsearch는 텍스트를 파싱해서 검색어 사전을 만든 다음에
+inverted index방식으로 텍스트를 저장한다.</p>
+<blockquote>
+<p>&ldquo;Lorem Ipsum is simply dummy text of the printing and typesetting industry&rdquo;</p>
+</blockquote>
+<p>예를 들어, 이 문장을 모두 파생해서 각 단어들(Lorem, Ipsum, is, simply&hellip;)을 저장하고,
+대문자는 소문자 처리하고, 유사어도 체크하는 등 작업을 통하여 텍스트를 저장한다.
+때문에 RDBMS보다 전문탐색(Full text Search)에 빠른 성능을 보인다.
+<a href="https://www.slideshare.net/kjmorc/ss-80803233">이미지출처</a>
+<img src="https://user-images.githubusercontent.com/66955409/89188162-3a3e4380-d5d9-11ea-9f24-8bd6cc6c5679.png" alt="image"></p>
+<h4 id="6-elasticsearch-저장-구조">6. ElasticSearch 저장 구조</h4>
+<p><a href="https://lng1982.tistory.com/283">참고링크</a>
+Index, Type, Document, Field, Mapping 용어들이 존재한다.</p>
+<ul>
+<li><strong>Index란?</strong>
 <ul>
 <li>RDB의 데이터베이스와 유사하다.</li>
 </ul>
 </li>
-<li>Type이란?
+<li><strong>Type이란?</strong>
 <ul>
 <li>RDB의 테이블과 유사하다.</li>
 </ul>
 </li>
-<li>Document란?
+<li><strong>Document란?</strong>
 <ul>
 <li>테이블이 ROW와 유사하다.</li>
 <li>JSON 문서로 되어있다. (key, value)</li>
 </ul>
 </li>
-<li>Field란?
+<li><strong>Field란?</strong>
 <ul>
 <li>엘라스틱 서치의 문서는 JSON이다.</li>
 <li>JSON의 프로퍼티를 엘라스틱 서치에서는 필드라고 부른다.</li>
 <li>RDB 테이블의 컬럼과 유사하다.</li>
 </ul>
 </li>
-<li>Mapping이란?
+<li><strong>Mapping이란?</strong>
 <ul>
 <li>RDB의 스키마와 유사하다.</li>
 <li>http://localhost:9200/nklee/phone/1 POST 요청</li>
