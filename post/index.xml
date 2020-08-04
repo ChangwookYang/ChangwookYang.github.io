@@ -6,10 +6,21 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Aug 2020 23:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2020 23:50:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>String &amp; StringBuilder</title>
+      <link>https://changwookyang.github.io/post/string_stringbuilder/</link>
+      <pubDate>Tue, 04 Aug 2020 23:50:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/string_stringbuilder/</guid>
+      <description>String, StringBuffer, StringBuilder 차이 및 장단점 참고링크
+Java에서 문자열을 다루는 대표적인 클래스로 String, StringBuffer, StringBuilder가 있다.
+연산이 많지 않을때는 위에 나열된 어떤 클래스를 사용하여도 문제없으나 연산횟수가 많아지거나 멀티쓰레드, Race Condition 등 상황이 발생하면 상황에 맞는 적절한 클래스 사용이 필요하다.</description>
+    </item>
     
     <item>
       <title>ElasticSearch 기본 동작 이해</title>
