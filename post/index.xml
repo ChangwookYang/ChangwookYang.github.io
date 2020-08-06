@@ -6,10 +6,20 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Aug 2020 23:50:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 23:50:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JVM이란 무엇인가</title>
+      <link>https://changwookyang.github.io/post/jvm/</link>
+      <pubDate>Thu, 06 Aug 2020 23:50:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/jvm/</guid>
+      <description>&amp;ldquo;JVM이란 무엇인가&amp;rdquo; 자바 가상머신 이해하기 자바 가상 머신(Java Virtual Machine, JVM)은 시스템 메모리를 관리하면서
+자바 기반 애플리케이션을 위해 이식 가능한 실행환경을 제공한다.</description>
+    </item>
     
     <item>
       <title>String &amp; StringBuilder</title>
