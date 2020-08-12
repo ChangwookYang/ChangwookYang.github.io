@@ -6,10 +6,19 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Aug 2020 23:50:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2020 02:50:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JPA(1) - 인프런</title>
+      <link>https://changwookyang.github.io/post/jpa1/</link>
+      <pubDate>Thu, 13 Aug 2020 02:50:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/jpa1/</guid>
+      <description>JPA(1) - 인프런 1. 객체를 관계형 DB에 관리, SQL에 의존적이다. 객체 필드추가 public class Member { private String memberId; private String name; // tel필드 추가 시, Insert, update, select 모두추가필요 	private String tel;	} 객체 vs 관계형 데이터베이스 객체와 관계형 DB의 차이점</description>
+    </item>
     
     <item>
       <title>JVM이란 무엇인가</title>
