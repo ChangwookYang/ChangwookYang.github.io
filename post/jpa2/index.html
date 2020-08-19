@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>JPA(2) - 인프런 &middot; WOOKLOG</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="JPA(2) - 인프런">
+<meta itemprop="description" content="JPA(2)-인프런 [1] 상속관계 매핑(1, 조인전략, 2. 단일테이블, 3. 구현클래스) 상속관계 매핑 : 객체의 상속과 구조와 DB의 슈퍼타입 서브타입 관계를 매핑 슈퍼타입 서브타입 논리 모델을 실제 물리 모델로 구현하는 방법">
+<meta itemprop="datePublished" content="2020-08-20T02:00:00&#43;09:00" />
+<meta itemprop="dateModified" content="2020-08-20T02:00:00&#43;09:00" />
+<meta itemprop="wordCount" content="1091">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JPA(2) - 인프런"/>
+<meta name="twitter:description" content="JPA(2)-인프런 [1] 상속관계 매핑(1, 조인전략, 2. 단일테이블, 3. 구현클래스) 상속관계 매핑 : 객체의 상속과 구조와 DB의 슈퍼타입 서브타입 관계를 매핑 슈퍼타입 서브타입 논리 모델을 실제 물리 모델로 구현하는 방법"/>
+
+
+<meta property="og:title" content="JPA(2) - 인프런" />
+<meta property="og:description" content="JPA(2)-인프런 [1] 상속관계 매핑(1, 조인전략, 2. 단일테이블, 3. 구현클래스) 상속관계 매핑 : 객체의 상속과 구조와 DB의 슈퍼타입 서브타입 관계를 매핑 슈퍼타입 서브타입 논리 모델을 실제 물리 모델로 구현하는 방법" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/jpa2/" />
+<meta property="article:published_time" content="2020-08-20T02:00:00+09:00" />
+<meta property="article:modified_time" content="2020-08-20T02:00:00+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>WOOKLOG</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>JPA(2) - 인프런</h1>
+
+  <div class="post-date">
+    <time datetime="2020-08-20T02:00:00&#43;0900">Aug 20, 2020</time>
+  </div>
+
+  <h3 id="jpa2-인프런">JPA(2)-인프런</h3>
+<h3 id="1-상속관계-매핑1-조인전략-2-단일테이블-3-구현클래스">[1] 상속관계 매핑(1, 조인전략, 2. 단일테이블, 3. 구현클래스)</h3>
+<h5 id="상속관계-매핑--객체의-상속과-구조와-db의-슈퍼타입-서브타입-관계를-매핑">상속관계 매핑 : 객체의 상속과 구조와 DB의 슈퍼타입 서브타입 관계를 매핑</h5>
+<p>슈퍼타입 서브타입 논리 모델을 실제 물리 모델로 구현하는 방법</p>
+<p><img src="https://user-images.githubusercontent.com/66955409/90657227-8cd85a80-e27d-11ea-9bf6-9c3f24d9e5f6.png" alt="image"></p>
+<h5 id="1-조인-전략---각각-테이블로-변환">1) 조인 전략 - 각각 테이블로 변환</h5>
+<p><img src="https://user-images.githubusercontent.com/66955409/90657713-b0030a00-e27d-11ea-861a-52365519f312.png" alt="image"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
+<span style="color:#a6e22e">@Inheritance</span><span style="color:#f92672">(</span>strategy<span style="color:#f92672">=</span>InheritanceType<span style="color:#f92672">.</span><span style="color:#a6e22e">JOINED</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Discriminator</span> <span style="color:#75715e">//DTYPE컬럼을 만들고 자식클래스 명이 들어간다.(ALBUM, MOVIE ..)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Item</span> <span style="color:#f92672">{</span>
+	<span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+<span style="color:#a6e22e">@Entity</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Album</span> <span style="color:#66d9ef">extends</span> Item <span style="color:#f92672">{</span> <span style="color:#f92672">...</span> <span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
+<p>장점</p>
+<ol>
+<li>테이블 정규화</li>
+<li>외래키 참조 무결성 제약조건 활용 가능(주문 테이블에서 ITEM 테이블만 보면 된다.)</li>
+<li>저장공간 효율화</li>
+</ol>
+<p>단점</p>
+<ol>
+<li>조회 시 조인을 많이 사용하여 성능 저하</li>
+<li>데이터 저장 시 INSERT SQL 2번 호출</li>
+</ol>
+</blockquote>
+<h5 id="2-단일-테이블-전략---통합-테이블로-변환한-테이블에-다-들어간다">2) 단일 테이블 전략 - 통합 테이블로 변환(한 테이블에 다 들어간다)</h5>
+<p><img src="https://user-images.githubusercontent.com/66955409/90658690-d5dcde80-e27e-11ea-964f-c62f9208bf0d.png" alt="image"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Inheritance</span><span style="color:#f92672">(</span>strategy<span style="color:#f92672">=</span> InheritanceType<span style="color:#f92672">.</span><span style="color:#a6e22e">SINGLE_TABLE</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">// 어느 자식클래스인지 구분하기 위해 DTYPE은 필수로 생성된다.
+</span></code></pre></div><blockquote>
+<p>장점</p>
+<ol>
+<li>조회 쿼리가 단순하고 조인이 없어 성능이 좋다</li>
+</ol>
+<p>단점</p>
+<ol>
+<li>자식 엔티티가 매핑한 컬럼은 모두 null 허용</li>
+<li>단일 테이블에 저장하므로 테이블이 커질 수 있다.</li>
+</ol>
+</blockquote>
+<h5 id="3-구현-클래스마다-테이블-전략---서브타입-테이블로-변환">3) 구현 클래스마다 테이블 전략 - 서브타입 테이블로 변환</h5>
+<p><img src="https://user-images.githubusercontent.com/66955409/90659512-b85c4480-e27f-11ea-9bf7-c7a618253bab.png" alt="image"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Inheritance</span><span style="color:#f92672">(</span>strategy <span style="color:#f92672">=</span> InheritanceType<span style="color:#f92672">.</span><span style="color:#a6e22e">TABLE_PER_CLASS</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">// Item Class는 Abstract 추상 테이블로 만들어준다.
+</span><span style="color:#75715e">// 클래스별로 분리되므로 @Disciminator는 무의미하다.
+</span></code></pre></div><blockquote>
+<p>쓰지 말아야할 전략!!!<br>
+테이블을 묶어낼 수가 없다. 조회하려면 모두 UNION ALL해야한다.<br>
+컬럼 추가 시에도 모두 추가해줘야한다.</p>
+</blockquote>
+<hr>
+<h3 id="2-mappedsuperclass">[2] @MappedSuperclass</h3>
+<p>공통 매핑정보가 필요할때 사용(id, name, regDt, regUsrId, updDt, updUsrId)</p>
+<p>DB는 완전 다른데 속성값을 공통으로 사용한다.(추상 클래스 사용)</p>
+<p><img src="https://user-images.githubusercontent.com/66955409/90660113-754ea100-e280-11ea-80a5-c91479497879.png" alt="image"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@MappedSuperClass</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">abstract</span> BaseEntity<span style="color:#f92672">{</span>
+	LocalDateTime regDt<span style="color:#f92672">;</span>
+	String regUsrId<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><hr>
+<h3 id="3-프록시와-연관관계-관리">[3] 프록시와 연관관계 관리</h3>
+<h5 id="1-프록시-기초">1) 프록시 기초</h5>
+<ul>
+<li>em.find vs em.getReference()</li>
+<li>em.find() : DB를 통해 실제 엔티티 객체 조회</li>
+<li>em.getReference() : DB 조회를 미루는 가짜(프록시) 엔티티 객체 조회</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/66955409/90661341-0a05ce80-e282-11ea-88b9-2dfc242505de.png" alt="image"></p>
+<blockquote>
+<p>껍데기에 아이디 값만 갖고 있다.</p>
+</blockquote>
+<h5 id="2-프록시-특징">2) 프록시 특징</h5>
+<ul>
+<li>실제 클래스를 상속</li>
+<li>실제 클래스와 겉모양이 같다</li>
+<li>사용 입장에서는 진짜 객체인지 프록시 객체인지 구분하지 않고 사용한다.</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/66955409/90661575-54874b00-e282-11ea-8505-edc2d4b42448.png" alt="image"></p>
+<ul>
+<li>
+<p>프록시 객체는 실제 객체의 참조(target)를 보관</p>
+</li>
+<li>
+<p>프록시 객체를 호출하면 프록시 객체는 실제 객체의 메소드를 호출한다.</p>
+<p><img src="https://user-images.githubusercontent.com/66955409/90661790-8d272480-e282-11ea-9104-8ac861359ffc.png" alt="image"></p>
+</li>
+</ul>
+<h5 id="3-프록시-객체의-초기화">3) 프록시 객체의 초기화</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">Member member <span style="color:#f92672">=</span> em<span style="color:#f92672">.</span><span style="color:#a6e22e">getReference</span><span style="color:#f92672">(</span>Member<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;id1&#34;</span><span style="color:#f92672">);</span>
+member<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/66955409/90669307-6968dc00-e28c-11ea-9c8a-42e33a3979e7.png" alt="image"></p>
+<p>(2. 초기화요청)은 Member target에 값이 없을 때 초기화를 요청한다.</p>
+<h5 id="4-프록시-특징">4) 프록시 특징</h5>
+<ul>
+<li>
+<p>프록시 객체는 처음 사용할 때 한번만 초기화한다.</p>
+</li>
+<li>
+<p>프록시 객체 초기화 시에 프록시 객체가 실제 엔티티로 바뀌는 것이 아니라</p>
+<p>초기화 되면 프록시 객체를 통해서 실제 엔티티에 접근이 가능하다.</p>
+<p>(프록시 객체를 호출하면 프록시 객체는 실제 객체의 메소드를 호출한다.)</p>
+</li>
+<li>
+<p>프록시 객체는 원본 엔티티를 상속받는다. 비교 시에는 == 대신에 instance of를 사용한다.</p>
+</li>
+<li>
+<p><strong>영속성 컨텍스트에 찾는 엔티티가 있으면 em.getReference()를 호출해도 실제 엔티티를 반환한다.</strong></p>
+<p>(JPA에서는 같은 영속성에서 같은 id를 조회하면 항상 같은 결과를 반환한다.)</p>
+</li>
+<li>
+<p>영속성 컨텍스트의 도움을 받을 수 없는 준영속 상태일 때 프록시를 초기화하면 문제 발생!</p>
+<p>(프록시는 무조건 영속성 컨텍스트를 통하므로 준영속 상태에서 사용할 수 없다.)</p>
+</li>
+</ul>
+<h5 id="5-프록시-확인">5) 프록시 확인</h5>
+<ul>
+<li>
+<p>프록시 인스턴스의 초기화 여부 확인</p>
+<p>PersistenceUtil.isLoaded(Object entity);</p>
+</li>
+<li>
+<p>프록시 클래스 확인 방법</p>
+<p>entity.getClass().getName() 출력 : javasist .. or HibernateProxy &hellip;</p>
+</li>
+<li>
+<p>프록시 강제 초기화</p>
+<p>하이버네이트 : org.hibernate.Hibernate.initialize(entity);</p>
+<p>JPA표준 : 강제초기화 없으므로 강제호출로 초기화 member.getName();</p>
+</li>
+</ul>
+<hr>
+<h3 id="4-즉시-로딩과-지연-로딩">[4] 즉시 로딩과 지연 로딩</h3>
+<h5 id="1-member를-조회할-때-team도-함께-조회해야-할까">1) Member를 조회할 때 Team도 함께 조회해야 할까?</h5>
+<p>단순히 member정보만 사용할 경우 Team까지 조회하면 낭비가 된다.<br>
+그러므로 지연로딩 LAZY를 사용해서 프록시로 조회할 수 있다.(즉시 로딩은 EAGER)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Member</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Id</span>
+    <span style="color:#a6e22e">@GeneratedValue</span>
+    <span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
+    
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;USERNAME&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    
+    <span style="color:#a6e22e">@ManyToOne</span><span style="color:#f92672">(</span>fetch <span style="color:#f92672">=</span> FetchType<span style="color:#f92672">.</span><span style="color:#a6e22e">LAZY</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@JoinColumn</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;TEAM_ID&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Team team<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/66955409/90664028-69b1a900-e285-11ea-8488-cbf1e8a15e98.png" alt="image"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JAVA" data-lang="JAVA">Team team <span style="color:#f92672">=</span> member<span style="color:#f92672">.</span><span style="color:#a6e22e">getTeam</span><span style="color:#f92672">();</span>
+team<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span> <span style="color:#75715e">// 실제 team을 사용하는 시점에 초기화(DB조회)
+</span></code></pre></div><h5 id="2-프록시와-즉시로딩-주의">2) 프록시와 즉시로딩 주의</h5>
+<ul>
+<li>가급적 지연로딩만 사용하는게 좋다</li>
+<li>즉시 로딩을 적용하면 예상하지 못한 SQL이 발생한다.</li>
+<li>즉시 로딩은 JPQL에서 N+1문제를 일으킨다.(하나 실행했는데 딸린 컬렉션들이 즉시로딩되어버림)</li>
+<li>@ManyToOne, @OneToOne (N:1) 인 애들이 디폴트가 즉시로딩이다. -&gt; LAZY로 설정</li>
+<li>@OneToMany, @ManyToMany는 기본이 지연로딩이다.</li>
+</ul>
+<hr>
+<h3 id="5-영속성-전이-cascade">[5] 영속성 전이 CASCADE</h3>
+<p>특정 엔티티를 영속 상태로 만들 때 연관된 엔티티도 함꼐 영속 상태로 만들고 싶을 때 사용한다.</p>
+<p>예) 부모 엔티티를 저장할 때 자식 엔티티도 함께 저장(연관 아이들을 함께 persist)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@OneToMany</span><span style="color:#f92672">(</span>mappedBy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;parent&#34;</span><span style="color:#f92672">,</span> cascade<span style="color:#f92672">=</span>CascadeType<span style="color:#f92672">.</span><span style="color:#a6e22e">PERSIST</span><span style="color:#f92672">)</span>
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/66955409/90669608-de3c1600-e28c-11ea-8012-7abba9eb1191.png" alt="image"></p>
+<p>영속성 전이는 연관관계를 매핑하는 것과 아무 관련이 없다.</p>
+<p>엔티티를 영속화 할 때 연관된 엔티티도 함께 영속화하는 편리함을 제공할 뿐!</p>
+<hr>
+<h3 id="6-고아-객체">[6] 고아 객체</h3>
+<p>고아객체 제거 : 부모 엔티티와 연관관계가 끊어진 자식 엔티티를 자동으로 삭제한다.</p>
+<blockquote>
+<p>orphanRemoval = true;</p>
+</blockquote>
+<p>부모를 제거하면 자식은 고아가 된다.</p>
+<p>고아 객체 제거기능을 활성화하면, 부모를 제거할 때 자식도 함께 제거된다.</p>
+<p>CascadeType.REMOVE처럼 동작한다.</p>
+<hr>
+<h3 id="7-영속성-전이--고아객체-생명주기">[7] 영속성 전이 + 고아객체, 생명주기</h3>
+<p>CascadeType.ALL + orpahnRemoval = true</p>
+<p>스스로 생명주기를 관리하는 엔티티는 em.persist()로 영속화, em.remove로 제거</p>
+<p>두 옵션을 모두 활성화하면 부모 엔티티를 통해서 자식의 생명 주기를 관리할 수 있다.</p>
+<hr>
+<h3 id="8-값-타입">[8] 값 타입</h3>
+<h5 id="1-jpa의-데이터-타입-분류">1) JPA의 데이터 타입 분류</h5>
+<ul>
+<li>
+<p>엔티티 타입</p>
+<ul>
+<li>
+<p>@Entity로 정의하는 객체</p>
+</li>
+<li>
+<p>데이터가 변해도 식별자로 지속해서 추적 가능</p>
+</li>
+<li>
+<p>예) 회원 엔티티의 키나 나이값을 변경해도 식별자로 인식가능</p>
+</li>
+</ul>
+</li>
+<li>
+<p>값 타입</p>
+<ul>
+<li>
+<p>int, Integer, String처럼 단순 값으로 사용하는 자바 기본타입이나 객체</p>
+</li>
+<li>
+<p>변경 시 추적불가</p>
+</li>
+<li>
+<p>예) 숫자 100을 200으로 변경하면 완전히 다른 값으로 대체</p>
+</li>
+<li>
+<p>값타입 종류</p>
+<ul>
+<li>
+<p>기본값 타입 : int, double, Integer, String</p>
+</li>
+<li>
+<p>임베디드 타입 : x, y좌표처럼 복합 값 타입</p>
+</li>
+<li>
+<p>컬렉션 값 타입</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-기본값-타입">2) 기본값 타입</h5>
+<ul>
+<li>
+<p>생명 주기를 엔티티에 의존 : 회원을 삭제하면 이름, 나이 필드도 함께 삭제</p>
+</li>
+<li>
+<p>기본 타입은 항상 값을 복사한다.</p>
+</li>
+</ul>
+<h5 id="3-임베디드-타입복합-값-타입">3) 임베디드 타입(복합 값 타입)</h5>
+<ul>
+<li>주로 기본값 타입을 모아서 만들었다.</li>
+<li>@Embeddable : 값 타입을 정의하는 곳에 표시</li>
+<li>@Embedded : 값 타입을 사용하는 곳에 표시</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/66955409/90669748-12afd200-e28d-11ea-8fff-ab9a34cb00b9.png" alt="image"></p>
+<ul>
+<li>임베디드 타입은 엔티티의 값일 뿐이므로, 임베디드 타입 사용 전후의 매핑 테이블은 동일하다.</li>
+</ul>
+<hr>
+<h3 id="9-값-타입과-불변-객체">[9] 값 타입과 불변 객체</h3>
+<h5 id="1-값-타입-공유-참조">1. 값 타입 공유 참조</h5>
+<ul>
+<li>임베디드 타입 같은 값 타입을 여러 엔티티에서 공유하면 위험하다.</li>
+<li>아래 그림은 회원 1의 city만 OldCity에서 NewCity로 바꾸고 싶었는데 회원 2의 city도 같이 변경된다.<br>
+(주소값이 같으므로)</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/66955409/90669942-65898980-e28d-11ea-966b-2e1c8ff87da7.png" alt="image"></p>
+<p>따라서 값타입의 실제 인스턴스 값을 복사해서 사용하여야한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">setCity<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Address<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;NewCity&#34;</span><span style="color:#f92672">))</span>
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/66955409/90669978-7803c300-e28d-11ea-8e14-95b640576530.png" alt="image"></p>
+<blockquote>
+<p>객체 타입의 한계</p>
+<ul>
+<li>임베디드 타입처럼 직접 정의한 값 타입은 객체 타입이다.</li>
+<li>기본 타입에 값을 대입하면 값을 복사하지만 객체 타입은 참조 값을 직접 대입하게 된다.</li>
+<li>객체의 공유 참조는 피할 수 없다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">Address</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Address</span>(<span style="color:#960050;background-color:#1e0010">“</span><span style="color:#a6e22e">Old</span><span style="color:#960050;background-color:#1e0010">”</span>);
+<span style="color:#a6e22e">Address</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span>; <span style="color:#75715e">//객체 타입은 참조를 전달
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">b</span>. <span style="color:#a6e22e">setCity</span>(<span style="color:#960050;background-color:#1e0010">“</span><span style="color:#a6e22e">New</span><span style="color:#960050;background-color:#1e0010">”</span>)
+</code></pre></div></blockquote>
+<h5 id="2-불변-객체">2) 불변 객체</h5>
+<ul>
+<li>
+<p>객체를 수정할 수 없게 만들면 부작용을 원천 차단</p>
+</li>
+<li>
+<p>값 타입은 불변 객체(immutable object)로 설계해야한다.</p>
+</li>
+<li>
+<p>불변 객체 : 생성 시점 이후 절대 값을 변경할 수 없는 객체</p>
+</li>
+<li>
+<p>생성자로만 값을 설정하고 수정자(Setter)를 만들지 않으면 된다.</p>
+</li>
+<li>
+<p>Integer, String은 자바가 제공하는 대표적인 불변 객체이다.</p>
+</li>
+<li>
+<p>만약 변경하고 싶다면 new Address(&quot;&quot;) 로 값을 선언한 후에 member.setAddress에 인자값을 넘겨준다.</p>
+</li>
+</ul>
+<h5 id="3-값-타입의-비교">3) 값 타입의 비교</h5>
+<ul>
+<li>
+<p>동일성 (identity) 비교 : 인스턴스의 참조값을 비교, == 사용</p>
+</li>
+<li>
+<p>동등성 (equivalence) 비교 : 인스턴스의 값을 비교, equals() 사용</p>
+</li>
+</ul>
+<hr>
+<h3 id="10-값-타입-컬렉션">[10] 값 타입 컬렉션</h3>
+<p><img src="https://user-images.githubusercontent.com/66955409/90670114-ac777f00-e28d-11ea-987a-b00eb15c21f8.png" alt="image"></p>
+<h5 id="1-값-타입-컬렉션">1) 값 타입 컬렉션</h5>
+<ul>
+<li>
+<p>값 타입을 하나 이상 저장할 떄 사용</p>
+</li>
+<li>
+<p>DB는 컬렉션을 같은 Table에 저장할 수 없다.</p>
+</li>
+<li>
+<p>컬렉션을 저장하기 위한 별도의 Table이 필요하다.</p>
+</li>
+<li>
+<p>값타입의 생명주기는 별도로 없다.</p>
+</li>
+<li>
+<p>값타입 컬렉션은 영속성 전이(CASCADE) + 고아객체 제거 기능을 필수로 가진다.</p>
+</li>
+<li>
+<p>값타입 컬렉션들은 지연로딩 방식이다.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@ElementCollection</span>
+<span style="color:#a6e22e">@CollectionTable</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;FAVORITE_FOOD&#34;</span>
+                <span style="color:#f92672">,</span>joinColumns<span style="color:#f92672">=</span><span style="color:#a6e22e">@JoinColumn</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;MEMBER_ID&#34;</span><span style="color:#f92672">))</span>
+<span style="color:#66d9ef">private</span> Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> favoriteFoods <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;&gt;();</span>
+
+<span style="color:#75715e">// 수정
+</span><span style="color:#75715e"></span>findMember<span style="color:#f92672">.</span><span style="color:#a6e22e">getFavoriteFoods</span><span style="color:#f92672">().</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;치킨&#34;</span><span style="color:#f92672">);</span>
+findMember<span style="color:#f92672">.</span><span style="color:#a6e22e">getFavoriteFoods</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;한식&#34;</span><span style="color:#f92672">);</span>
+findMember<span style="color:#f92672">.</span><span style="color:#a6e22e">getAddressHistory</span><span style="color:#f92672">().</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Address<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;old&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;street&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;10000&#34;</span><span style="color:#f92672">));</span>
+findMember<span style="color:#f92672">.</span><span style="color:#a6e22e">getAddressHistory</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Address<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;new&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;street&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;10000&#34;</span><span style="color:#f92672">));</span>
+<span style="color:#75715e">// 값 타입 컬렉션에 변경사항이 발생하면 주인 엔티티와 연관된 모든 데이터를 삭제하고
+</span><span style="color:#75715e">// 값 타입 컬렉션에 있는 현재값을 모두 다시 저장한다.
+</span><span style="color:#75715e">// 따라서 값 타입 컬렉션 대신에 일대다 관계를 고려하는 것이 바람직하다.
+</span><span style="color:#75715e">// 일대다 관계에서 영속성전이(cascade) + 고아객체 제거를 사용해서 값 타입 컬렉션처럼 사용가능하다.
+</span></code></pre></div><h5 id="2-엔티티-타입의-특징">2) 엔티티 타입의 특징</h5>
+<ul>
+<li>식별자 O</li>
+<li>생명주기 관리</li>
+<li>공유</li>
+</ul>
+<h5 id="3-값-타입의-특징">3) 값 타입의 특징</h5>
+<ul>
+<li>식별자 X</li>
+<li>생명 주기를 엔티티에 의존</li>
+<li>공유하지 않는 것이 안전(복사해서 사용)</li>
+<li>불변 객체로 만드는 것이 안전</li>
+</ul>
+<blockquote>
+<p>값타입은 정말 값타입이라 판단될떄만 사용한다!</p>
+<p>식별자가 필요하고 지속해서 값을 추적, 변경해야한다면 그것은 값타입이 아닌 엔티티이다.</p>
+</blockquote>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "wookchangyang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-172670101-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -15,7 +15,7 @@
 <meta itemprop="description" content="JPA(1) - 인프런 1. 객체를 관계형 DB에 관리, SQL에 의존적이다. 객체 필드추가 public class Member { private String memberId; private String name; // tel필드 추가 시, Insert, update, select 모두추가필요 	private String tel;	} 객체 vs 관계형 데이터베이스 객체와 관계형 DB의 차이점">
 <meta itemprop="datePublished" content="2020-08-13T02:50:00&#43;09:00" />
 <meta itemprop="dateModified" content="2020-08-13T02:50:00&#43;09:00" />
-<meta itemprop="wordCount" content="632">
+<meta itemprop="wordCount" content="633">
 
 
 
@@ -208,13 +208,12 @@ Team team <span style="color:#f92672">=</span> member<span style="color:#f92672"
 <p>영속(비영속 상태의 객체를 저장한 상태)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JAVA" data-lang="JAVA">Member member <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Member<span style="color:#f92672">();</span>
 member<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;member1&#34;</span><span style="color:#f92672">);</span>
-
-EntityManager em <span style="color:#f92672">=</span> EntityManagerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">createEntityManager</span><span style="color:#f92672">();</span>
-em<span style="color:#f92672">.</span><span style="color:#a6e22e">getTransaction</span><span style="color:#f92672">().</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">();</span>
-
-<span style="color:#75715e">// 객체를 저장한 상태(영속)
-</span><span style="color:#75715e"></span>em<span style="color:#f92672">.</span><span style="color:#a6e22e">persist</span><span style="color:#f92672">(</span>member<span style="color:#f92672">);</span>
-</code></pre></div></li>
+</code></pre></div><p>EntityManager em = EntityManagerFactory.createEntityManager();
+em.getTransaction().begin();</p>
+<p>// 객체를 저장한 상태(영속)
+em.persist(member);</p>
+<pre><code>
+</code></pre></li>
 <li>
 <p>준영속(영속성 컨텍스트에서 분리)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JAVA" data-lang="JAVA"><span style="color:#75715e">// 회원 엔티티를 영속성 컨텍스트에서 분리, 준영속 상태
@@ -290,6 +289,8 @@ teamId 속성으로 Team 객체를 다시 조회해야 하므로 객체지향적
  	<span style="color:#a6e22e">@JoinColumn</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;TEAM_ID&#34;</span><span style="color:#f92672">)</span>
  	<span style="color:#66d9ef">private</span> Team team<span style="color:#f92672">;</span>
 <span style="color:#f92672">}</span>
+
+<span style="color:#a6e22e">@OneToMany</span>
 
 <span style="color:#75715e">//조회
 </span><span style="color:#75715e"></span>Member findMember <span style="color:#f92672">=</span> em<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">(</span>Member<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> member<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>

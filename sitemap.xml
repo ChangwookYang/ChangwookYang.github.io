@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://changwookyang.github.io/post/jpa1/</loc>
-    <lastmod>2020-08-13T02:50:00+09:00</lastmod>
+    <loc>https://changwookyang.github.io/post/jpa2/</loc>
+    <lastmod>2020-08-20T02:00:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://changwookyang.github.io/post/</loc>
-    <lastmod>2020-08-13T02:50:00+09:00</lastmod>
+    <lastmod>2020-08-20T02:00:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://changwookyang.github.io/</loc>
+    <lastmod>2020-08-20T02:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://changwookyang.github.io/post/jpa1/</loc>
     <lastmod>2020-08-13T02:50:00+09:00</lastmod>
   </url>
   
@@ -115,6 +120,10 @@
   <url>
     <loc>https://changwookyang.github.io/post/test/</loc>
     <lastmod>2020-07-07T00:32:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://changwookyang.github.io/post/binarysearch/</loc>
   </url>
   
   <url>
