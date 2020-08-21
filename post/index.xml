@@ -6,10 +6,22 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Aug 2020 02:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2020 18:50:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JPQL - 인프런</title>
+      <link>https://changwookyang.github.io/post/jpql/</link>
+      <pubDate>Fri, 21 Aug 2020 18:50:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/jpql/</guid>
+      <description>객체지향 쿼리 언어(JPQL) [1] JPQL 소개   가장 단순한 조회 방법
+EntityManager.find()
+객체 그래프 탐색 (a.getB().getC())
+  JPQL은 객체지향 쿼리언어, 테이블 대상이 아닌 entity 객체를 대상으로 검색</description>
+    </item>
     
     <item>
       <title>JPA(2) - 인프런</title>
