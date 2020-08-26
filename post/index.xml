@@ -6,10 +6,19 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Aug 2020 18:50:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2020 02:49:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>포트폴리오 작성법</title>
+      <link>https://changwookyang.github.io/post/devportfolio/</link>
+      <pubDate>Thu, 27 Aug 2020 02:49:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/devportfolio/</guid>
+      <description>포트폴리오 작성 ▶ 포트폴리오 작성법 참고 1. 이직초보 어느 개발자의 이력서 만들기 - 어떻게 하면 내 이력서를 보게 할까, 인상적인 첫 페이지 만들기   인적사항, 필수적인것들만</description>
+    </item>
     
     <item>
       <title>JPQL - 인프런</title>
