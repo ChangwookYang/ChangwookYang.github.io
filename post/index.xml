@@ -6,10 +6,20 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Sep 2020 02:02:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2020 02:02:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>순열알고리즘(DFS)</title>
+      <link>https://changwookyang.github.io/post/permutation/</link>
+      <pubDate>Thu, 10 Sep 2020 02:02:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/permutation/</guid>
+      <description>순열 알고리즘 1. 순열이란? 서로 다른 n개 중 r개를 골라 순서로 고려해 나열한 경우의 수 프로그래머스 42839
+2. DFS를 사용하여 구현!</description>
+    </item>
     
     <item>
       <title>스레드(Thread)</title>
