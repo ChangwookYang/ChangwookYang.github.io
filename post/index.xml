@@ -6,10 +6,20 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Sep 2020 02:02:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 23:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Array 정렬</title>
+      <link>https://changwookyang.github.io/post/arraysort/</link>
+      <pubDate>Mon, 14 Sep 2020 23:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/arraysort/</guid>
+      <description>Array 내림차순 정렬 Primitive type Array 내림차순 정렬을 어떻게 할지 알아보았다.
+stream을 쓴것도 있길래 좀 더 클래식한 코드가 없는지 찾아보다가</description>
+    </item>
     
     <item>
       <title>순열알고리즘(DFS)</title>
