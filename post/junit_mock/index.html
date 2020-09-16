@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>TDD, JUnit, TestDouble &middot; WOOKLOG</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="TDD, JUnit, TestDouble">
+<meta itemprop="description" content="TDD란? (Test-Driven Development) 테스트를 중점으로 두고, 테스트를 선 작성하여 통과하는 코드를 후에 개발하는 Agile 개발 방법론
+given -&gt; when -&gt; then">
+<meta itemprop="datePublished" content="2020-09-16T23:00:00&#43;09:00" />
+<meta itemprop="dateModified" content="2020-09-16T23:00:00&#43;09:00" />
+<meta itemprop="wordCount" content="380">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TDD, JUnit, TestDouble"/>
+<meta name="twitter:description" content="TDD란? (Test-Driven Development) 테스트를 중점으로 두고, 테스트를 선 작성하여 통과하는 코드를 후에 개발하는 Agile 개발 방법론
+given -&gt; when -&gt; then"/>
+
+
+<meta property="og:title" content="TDD, JUnit, TestDouble" />
+<meta property="og:description" content="TDD란? (Test-Driven Development) 테스트를 중점으로 두고, 테스트를 선 작성하여 통과하는 코드를 후에 개발하는 Agile 개발 방법론
+given -&gt; when -&gt; then" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/junit_mock/" />
+<meta property="article:published_time" content="2020-09-16T23:00:00+09:00" />
+<meta property="article:modified_time" content="2020-09-16T23:00:00+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>WOOKLOG</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>TDD, JUnit, TestDouble</h1>
+
+  <div class="post-date">
+    <time datetime="2020-09-16T23:00:00&#43;0900">Sep 16, 2020</time>
+  </div>
+
+  <hr>
+<h3 id="tdd란-test-driven-development">TDD란? (Test-Driven Development)</h3>
+<p>테스트를 중점으로 두고, 테스트를 선 작성하여 통과하는 코드를 후에 개발하는 Agile 개발 방법론</p>
+<p><img src="https://wikidocs.net/images/page/224/tdd_flow.jpg" alt="img"></p>
+<p><strong>given -&gt; when -&gt; then</strong></p>
+<p>TDD의 기법 중 JUnit,  테스트 더블(Mock, Stub)에 대해 알아보자</p>
+<hr>
+<h3 id="junit이란">JUnit이란?</h3>
+<p>JUnit은 자바용 단위 테스트 작성을 위한 산업 표준 프레임워크다.</p>
+<p>프로그램을 작성하여 번거롭게 디버깅할 필요가 없어진다.</p>
+<p>JDK 1.4에서 추가된 assertXXX를 사용하여 Test를 진행하며</p>
+<p>테스트 결과를 확인하는 것 이외에 최적화된 코드를 유추해내는 기능도 제공한다.</p>
+<p>테스트 결과를 단순 텍스트로 남기는게 아니라 Test 클래스로 남기게되어 History 관리에도 용이하다.</p>
+<hr>
+<h3 id="junit-사용하기">JUnit 사용하기</h3>
+<h5 id="calculator-클래스-구현">Calculator 클래스 구현</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.calculator<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sum</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num1<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> num2<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">return</span> num1 <span style="color:#f92672">+</span> num2<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h5 id="calculator-테스트-클래스-구현">Calculator 테스트 클래스 구현</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 1. com.calculator.test 패키지를 만든다.
+</span><span style="color:#75715e">// 2. com.calculator.test 패키지에서 마우스 오른쪽버튼 -&gt; New -&gt; JUnit Test Case 선택
+</span><span style="color:#75715e">// 3. Name : class명 + Test / Undertest : com.calculator.Calculator
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">package</span> com.calculator.test<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CalculatorTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testSum</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        Calculator calculator <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Calculator<span style="color:#f92672">();</span>
+        asserEquals<span style="color:#f92672">(</span>30<span style="color:#f92672">,</span> calcultaor<span style="color:#f92672">.</span><span style="color:#a6e22e">sum</span><span style="color:#f92672">(</span>10<span style="color:#f92672">,</span>20<span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">// 실행방법 : 테스트클래스 마우스 오른쪽버튼 -&gt; RunAs -&gt; JUnit Test
+</span></code></pre></div><hr>
+<hr>
+<h3 id="테스트-더블">테스트 더블</h3>
+<p><img src="https://miro.medium.com/max/381/1*8I31UX1fKaPZAbkSF6DG0w.gif" alt="img"></p>
+<p>단위 테스트는 독립적으로 작성될 수 있어야한다.</p>
+<p>테스트 대상이 의존하는 것으 실제가 아닌 다른 것으로 대체 할 수 있다.</p>
+<p>이를 테스트 더블(Test Double)이라 하고 Mock/Stub/Fack 등이 있으며</p>
+<p>Test Double의 어원은 Stunt Double(대역)이다.</p>
+<h5 id="사용시점">사용시점</h5>
+<p>개발하다보면 테스트 대상 코드가 다른 클래스에 종속되어 있는 경우가 있다.</p>
+<p>Database, 파일 시스템, 외부 리소스 등등 런타임 환경에 의존적인 어플리케이션을 단위테스트하기는 어렵다.</p>
+<p>또는 팀 단위 프로젝트에서 다른 부분이 준비 안되었을때 가짜를 만들어 시뮬레이션 할 수 있다.</p>
+<hr>
+<h3 id="mock-객체란">Mock 객체란?</h3>
+<p>가짜 객체를 제공하는 테스트 방식으로 목(Mock) 객체를 사용할 수 있다.</p>
+<p>목 오브젝트는 단지 모조품이므로 처음부터 실제 객체로 테스트 가능하다면 목(Mock) 오브젝트를 쓰지말자!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MockCategoryServiceImpl</span> <span style="color:#66d9ef">implements</span> CategoryService <span style="color:#f92672">{</span>
+    
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Category<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCategoriesByBookNo</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> no<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Category<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+            <span style="color:#f92672">{</span>
+            	add<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Category<span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;유아동&#34;</span><span style="color:#f92672">));</span>
+            	add<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Category<span style="color:#f92672">(</span>2<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;레저/취미&#34;</span><span style="color:#f92672">));</span>
+            	add<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Category<span style="color:#f92672">(</span>3<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;패션&#34;</span><span style="color:#f92672">));</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
+    
+<span style="color:#f92672">}</span>
+</code></pre></div><hr>
+<h3 id="stub-함수란">Stub 함수란?</h3>
+<p>가짜 함수(속이 빈 함수)를 제공하는 테스트 방식으로 Stub 함수를 사용할 수 있다.</p>
+<p>함수가 반환하는 값을 하드코딩으로 임의 생성하는 형식이다.</p>
+<p>복잡한 논리 흐름을 가지는 경우 테스트를 단순화할 목적으로 사용한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">calculate</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// given
+</span><span style="color:#75715e"></span>    given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">getUserByNo</span><span style="color:#f92672">(</span>4<span style="color:#f92672">)).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span>Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">());</span>	<span style="color:#75715e">// TEST STUB
+</span><span style="color:#75715e"></span>    
+    <span style="color:#75715e">// when
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> calculator<span style="color:#f92672">.</span><span style="color:#a6e22e">calculate</span><span style="color:#f92672">(</span>4<span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+    
+    <span style="color:#75715e">// then
+</span><span style="color:#75715e"></span>    assertThat<span style="color:#f92672">(</span>result<span style="color:#f92672">).</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserServiceImple</span> <span style="color:#66d9ef">implements</span> UserService <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Overrider</span>
+    <span style="color:#66d9ef">public</span> Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getUserByNo</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> userNo<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>useNo <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+         	User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;changwook&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;seoul&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">return</span> Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>userNo <span style="color:#f92672">==</span> 4<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+         	User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;incheon&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">return</span> Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>    
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+    
+<span style="color:#f92672">}</span>
+</code></pre></div>
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "wookchangyang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-172670101-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

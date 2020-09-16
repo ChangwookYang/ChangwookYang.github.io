@@ -6,10 +6,20 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Sep 2020 23:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2020 23:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TDD, JUnit, TestDouble</title>
+      <link>https://changwookyang.github.io/post/junit_mock/</link>
+      <pubDate>Wed, 16 Sep 2020 23:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/junit_mock/</guid>
+      <description>TDD란? (Test-Driven Development) 테스트를 중점으로 두고, 테스트를 선 작성하여 통과하는 코드를 후에 개발하는 Agile 개발 방법론
+given -&amp;gt; when -&amp;gt; then</description>
+    </item>
     
     <item>
       <title>Array 정렬</title>

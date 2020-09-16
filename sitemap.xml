@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://changwookyang.github.io/post/arraysort/</loc>
-    <lastmod>2020-09-14T23:00:00+09:00</lastmod>
+    <loc>https://changwookyang.github.io/post/</loc>
+    <lastmod>2020-09-16T23:00:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://changwookyang.github.io/post/</loc>
-    <lastmod>2020-09-14T23:00:00+09:00</lastmod>
+    <loc>https://changwookyang.github.io/post/junit_mock/</loc>
+    <lastmod>2020-09-16T23:00:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://changwookyang.github.io/</loc>
+    <lastmod>2020-09-16T23:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://changwookyang.github.io/post/arraysort/</loc>
     <lastmod>2020-09-14T23:00:00+09:00</lastmod>
   </url>
   
