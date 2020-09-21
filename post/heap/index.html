@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>프로그래머스 #42626 - 더 맵게 &middot; WOOKLOG</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="프로그래머스 #42626 - 더 맵게">
+<meta itemprop="description" content="프로그래머스 #42626 - 더 맵게 [힙 개념] 1. 힙이란 ?  완전 이진 트리의 일종으로 우선순위 큐를 위해 만들어진 자료구조 여러 값 중에서 최소, 최대값을 빠르게 찾기위한 자료구조 힙은 느슨한 정렬상태 부모의 키 값이 자식보다 항상 큰/작은 이진 트리를 말한다.">
+<meta itemprop="datePublished" content="2020-09-22T00:20:00&#43;09:00" />
+<meta itemprop="dateModified" content="2020-09-22T00:20:00&#43;09:00" />
+<meta itemprop="wordCount" content="296">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="프로그래머스 #42626 - 더 맵게"/>
+<meta name="twitter:description" content="프로그래머스 #42626 - 더 맵게 [힙 개념] 1. 힙이란 ?  완전 이진 트리의 일종으로 우선순위 큐를 위해 만들어진 자료구조 여러 값 중에서 최소, 최대값을 빠르게 찾기위한 자료구조 힙은 느슨한 정렬상태 부모의 키 값이 자식보다 항상 큰/작은 이진 트리를 말한다."/>
+
+
+<meta property="og:title" content="프로그래머스 #42626 - 더 맵게" />
+<meta property="og:description" content="프로그래머스 #42626 - 더 맵게 [힙 개념] 1. 힙이란 ?  완전 이진 트리의 일종으로 우선순위 큐를 위해 만들어진 자료구조 여러 값 중에서 최소, 최대값을 빠르게 찾기위한 자료구조 힙은 느슨한 정렬상태 부모의 키 값이 자식보다 항상 큰/작은 이진 트리를 말한다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/heap/" />
+<meta property="article:published_time" content="2020-09-22T00:20:00+09:00" />
+<meta property="article:modified_time" content="2020-09-22T00:20:00+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>WOOKLOG</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>프로그래머스 #42626 - 더 맵게</h1>
+
+  <div class="post-date">
+    <time datetime="2020-09-22T00:20:00&#43;0900">Sep 22, 2020</time>
+  </div>
+
+  <h3 id="프로그래머스-42626---더-맵게">프로그래머스 #42626 - 더 맵게</h3>
+<h4 id="힙-개념">[힙 개념]</h4>
+<h5 id="1-힙이란-">1. 힙이란 ?</h5>
+<ul>
+<li>완전 이진 트리의 일종으로 우선순위 큐를 위해 만들어진 자료구조</li>
+<li>여러 값 중에서 최소, 최대값을 빠르게 찾기위한 자료구조</li>
+<li>힙은 느슨한 정렬상태</li>
+<li>부모의 키 값이 자식보다 항상 큰/작은 이진 트리를 말한다. (큰 - 최대힙 / 작은 - 최소힙)</li>
+<li>힙 트리는 중복을 허용한다.</li>
+</ul>
+<h5 id="2--힙-구현">2.  힙 구현</h5>
+<ul>
+<li>힙의 표준자료구조는 배열 (구현을 쉽게 하기위해 인덱스 0은 사용 X)</li>
+<li>힙에서의 부모 노드와 자식 노드의 관계
+<ul>
+<li>왼쪽 자식의 인덱스 = 부모 인덱스 x 2</li>
+<li>오른쪽 자식의 인덱스 = 부모 인덱스 x 2 + 1</li>
+<li>부모의 인덱스 = 자식 인덱스 / 2</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-힙-삽입">3. 힙 삽입</h5>
+<ul>
+<li>힙에 새로운 요소가 들어오면 마지막 노드에 이어서 삽입</li>
+<li>새로운 노드를 부모 노드들과 교환해서 힙의 성질을 만족할때까지 교환</li>
+<li>다른 자식 노드는 부모보다 이미 작거나 같으므로 비교할 필요 없다.</li>
+</ul>
+<h5 id="4-힙-삭제">4. 힙 삭제</h5>
+<ul>
+<li>삭제는 무조건 루트에서 일어난다.</li>
+<li>최대 힙에서 최대값은 루트노드이므로 루트노드가 삭제된다.</li>
+<li>삭제된 루트 노드에는 힙의 마지막 노드를 가져오고 힙을 재구성한다.</li>
+</ul>
+<h4 id="프로그래머스-42626">[프로그래머스 #42626]</h4>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42626">문제링크</a></p>
+<h5 id="1-힙-직접-구현테스트-케이스-일부-통과-실패">1. 힙 직접 구현(테스트 케이스 일부 통과 실패)</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solution</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> scoville<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> heap <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">(</span>scoville<span style="color:#f92672">).</span><span style="color:#a6e22e">boxed</span><span style="color:#f92672">().</span><span style="color:#a6e22e">sorted</span><span style="color:#f92672">().</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toList</span><span style="color:#f92672">());</span>
+        
+    	<span style="color:#75715e">// heap 계산을 쉽게하기 위해 0추가
+</span><span style="color:#75715e"></span>        heap<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>heap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> <span style="color:#f92672">&gt;</span> K<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>heap<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> 2<span style="color:#f92672">){</span>
+                <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>heap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> <span style="color:#f92672">&gt;</span> K<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+
+            Integer minFirstVal <span style="color:#f92672">=</span> heap<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+            Integer minSecondVal <span style="color:#f92672">=</span> heap<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+
+            answer<span style="color:#f92672">++;</span>
+
+            Integer newValue <span style="color:#f92672">=</span> minFirstVal <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>2<span style="color:#f92672">*</span>minSecondVal<span style="color:#f92672">);</span>
+            heap<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>newValue<span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">int</span> index <span style="color:#f92672">=</span> heap<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()-</span>1<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>index <span style="color:#f92672">&gt;=</span> 2 <span style="color:#f92672">&amp;&amp;</span> heap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>index<span style="color:#f92672">)</span> <span style="color:#f92672">&lt;</span> heap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>index<span style="color:#f92672">/</span>2<span style="color:#f92672">)){</span>
+                Integer temp <span style="color:#f92672">=</span> heap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>index<span style="color:#f92672">);</span>
+                heap<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>index<span style="color:#f92672">,</span> heap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>index<span style="color:#f92672">/</span>2<span style="color:#f92672">));</span>
+                heap<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>index<span style="color:#f92672">/</span>2<span style="color:#f92672">,</span> temp<span style="color:#f92672">);</span>
+                index <span style="color:#f92672">=</span> index<span style="color:#f92672">/</span>2<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h5 id="2-priorityqueue-사용통과">2. PriorityQueue 사용(통과)</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solution</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> scoville<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> answer <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+
+        PriorityQueue<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> priorityQueue <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">(</span>scoville<span style="color:#f92672">).;</span>
+
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> val <span style="color:#f92672">:</span> scoville<span style="color:#f92672">){</span>
+            priorityQueue<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>val<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>priorityQueue<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> 1<span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">int</span> firstVal <span style="color:#f92672">=</span> priorityQueue<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>firstVal <span style="color:#f92672">&gt;=</span> K<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                answer<span style="color:#f92672">++;</span>
+                <span style="color:#66d9ef">int</span> secondVal <span style="color:#f92672">=</span> priorityQueue<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">();</span>
+                priorityQueue<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>firstVal <span style="color:#f92672">+</span> 2<span style="color:#f92672">*</span>secondVal<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>priorityQueue<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> 1 <span style="color:#f92672">&amp;&amp;</span> priorityQueue<span style="color:#f92672">.</span><span style="color:#a6e22e">peek</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> K<span style="color:#f92672">)</span> answer <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> answer<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "wookchangyang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-172670101-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
