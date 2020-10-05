@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>Design Pattern #1 &middot; WOOKLOG</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Design Pattern #1">
+<meta itemprop="description" content="# 디자인 패턴 백설 공주를 연기하는 연기자가 누구이든 왕자와 백설공주는 사랑을 한다.
+디자인 패턴은 &lsquo;역할&rsquo;에 집중한다.
+디자인 패턴은 구성원이 다르더라도 부품이 어떻게 조립되어있고,">
+<meta itemprop="datePublished" content="2020-10-06T01:45:00&#43;09:00" />
+<meta itemprop="dateModified" content="2020-10-06T01:45:00&#43;09:00" />
+<meta itemprop="wordCount" content="550">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Design Pattern #1"/>
+<meta name="twitter:description" content="# 디자인 패턴 백설 공주를 연기하는 연기자가 누구이든 왕자와 백설공주는 사랑을 한다.
+디자인 패턴은 &lsquo;역할&rsquo;에 집중한다.
+디자인 패턴은 구성원이 다르더라도 부품이 어떻게 조립되어있고,"/>
+
+
+<meta property="og:title" content="Design Pattern #1" />
+<meta property="og:description" content="# 디자인 패턴 백설 공주를 연기하는 연기자가 누구이든 왕자와 백설공주는 사랑을 한다.
+디자인 패턴은 &lsquo;역할&rsquo;에 집중한다.
+디자인 패턴은 구성원이 다르더라도 부품이 어떻게 조립되어있고," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/designpatter1/" />
+<meta property="article:published_time" content="2020-10-06T01:45:00+09:00" />
+<meta property="article:modified_time" content="2020-10-06T01:45:00+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>WOOKLOG</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Design Pattern #1</h1>
+
+  <div class="post-date">
+    <time datetime="2020-10-06T01:45:00&#43;0900">Oct 6, 2020</time>
+  </div>
+
+  <h3 id="-디자인-패턴"># 디자인 패턴</h3>
+<p>백설 공주를 연기하는 연기자가 누구이든 왕자와 백설공주는 사랑을 한다.</p>
+<p>디자인 패턴은 &lsquo;역할&rsquo;에 집중한다.</p>
+<p>디자인 패턴은 구성원이 다르더라도 부품이 어떻게 조립되어있고,</p>
+<p>각각의 부품이 어떻게, 관련해서 큰 기능을 발휘하는지를 표현한 것이다.</p>
+<hr>
+<h3 id="-chapter-1---iterator-패턴"># Chapter 1 - Iterator 패턴</h3>
+<p>Iterator 순서대로 지정해서 처리하기</p>
+<p>Iterator 패턴이란, 무엇인가 많이 모여있는 것들을</p>
+<p>순서대로 지정하면서 전체를 검색하는 처리를 실행하기 위한 것</p>
+<hr>
+<h3 id="-chapter-2---adapter-패턴"># Chapter 2 - Adapter 패턴</h3>
+<p>이미 제공되어 있는 것을 그대로 사용할 수 없을 때 필요한 형태로 교환하고 사용하는 일</p>
+<p>&lsquo;이미 제공되어 있는 것&rsquo;과 &lsquo;필요한 것&rsquo; 사이의 &lsquo;차이&rsquo;를 없애주는 패턴이 Adapter 패턴이다.<br>
+(Wrapper패턴이라고도 한다)</p>
+<h5 id="adapter-패턴의-두-종류">Adapter 패턴의 두 종류</h5>
+<ol>
+<li>클래스에 의한 Adapter(상속)</li>
+<li>인스턴스에 의한 Adapter(위임) : 어떤 메소드의 실제처리를 다른 인스턴스의 메소드에 맡긴다.</li>
+</ol>
+<h5 id="adapter-패턴의-사용-경우">Adapter 패턴의 사용 경우</h5>
+<ul>
+<li>부품으로 재이용할 수 있다. 기존의 클래스를 개조하여 필요한 클래스를 만든다.</li>
+<li>기존 클래스는 버그가 없으므로 Adapter 역할의 클래스를 중점적으로 검사한다.</li>
+<li>구버전과 신버전을 공존시키고 유지보수를 편하게 하기위해 사용된다.(호환성)</li>
+</ul>
+<h5 id="예제---banner-클래스를-사용하여-print-충족">예제 - Banner 클래스를 사용하여 Print 충족</h5>
+<ol>
+<li>클래스에 의한 Adapter(상속)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrintBanner</span> <span style="color:#66d9ef">extends</span> Banner <span style="color:#66d9ef">implements</span> Print <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PrintBanner</span><span style="color:#f92672">(</span>String string<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>string<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printWeak</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        showWithParen<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        showWithAster<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ol start="2">
+<li>인스턴스에 의한 Adapter(위임)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrintBanner</span> <span style="color:#66d9ef">extends</span> Print <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> Banner banner<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PrintBanner</span><span style="color:#f92672">(</span>String string<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">banner</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Banner<span style="color:#f92672">(</span>string<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printWeak</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        banner<span style="color:#f92672">.</span><span style="color:#a6e22e">showWithParen</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        banner<span style="color:#f92672">.</span><span style="color:#a6e22e">showWithAster</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><hr>
+<h3 id="-chapter-3---template-method-패턴"># Chapter 3 - Template Method 패턴</h3>
+<p><strong>하위클래스에서 구체적으로 처리하기</strong></p>
+<p>상위 클래스 쪽에 템플릿에 해당하는 메소드가 정리되어 있고, 그 메소드에는 추상 메소드가 사용되고 있다.</p>
+<p>하위 메소드에서 실제 로직을 구현한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AbstractDisplay</span>  <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">open</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// 추상 클래스에서 구현되고 있는 메소드 display
+</span><span style="color:#75715e"></span>        open<span style="color:#f92672">();</span>
+        print<span style="color:#f92672">();</span>
+        close<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">// 메인에서 호출
+</span><span style="color:#75715e"></span>AbstractDisplay d1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringDisplay<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;하이하이ㅎㅎ&#34;</span><span style="color:#f92672">);</span>
+d1<span style="color:#f92672">.</span><span style="color:#a6e22e">display</span><span style="color:#f92672">();</span>	<span style="color:#75715e">// 템플릿 메소드 호출
+</span></code></pre></div><h5 id="template-method-패턴의-이점">Template Method 패턴의 이점</h5>
+<p>상위 클래스에서 템플릿 메소드의 알고리즘이 기술되어 하위 클래스에서 다시 기술할  필요가 없다.</p>
+<p>Template Method를 구현하지 않고 여러개의 Concrete Class를 만들면 에러발생 시 모두 수정해야한다.</p>
+<h5 id="template-method-패턴의-단점">Template Method 패턴의 단점</h5>
+<p>상위 클래스에서 기술을 많이하게 되면 하이클래스에서 기술이 편하지만 자유성이 많이 줄게된다.</p>
+<p>상위 클래스에서 기술을 적게하면 하위 클래스의 기술이 어렵게 되고</p>
+<p>하위클래스의 기술이 중복될 수 있다.</p>
+<hr>
+<h3 id="-chapter-4---factory-method-패턴"># Chapter 4 - Factory Method 패턴</h3>
+<p>인스턴스를 생성하는 공장을 Template Method 패턴으로 구성</p>
+<h5 id="framework">framework</h5>
+<table>
+<thead>
+<tr>
+<th>Factory</th>
+<th>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;&gt; creates</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create</td>
+<td></td>
+<td>use</td>
+</tr>
+<tr>
+<td>createProduct</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>registerProduct</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="idcard">idcard</h5>
+<table>
+<thead>
+<tr>
+<th>IdCardFactory (Factory 상속)</th>
+<th>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;&gt; creates</th>
+<th>IDCard (Product 상속)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>owners (필드)</td>
+<td></td>
+<td>owner (필드)</td>
+</tr>
+<tr>
+<td>createProduct</td>
+<td></td>
+<td>use</td>
+</tr>
+<tr>
+<td>registerProduct</td>
+<td></td>
+<td>getOwner</td>
+</tr>
+<tr>
+<td>getOwners</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>framework - Factory 클래스는 Template Method 패턴이 사용되고 있다.</p>
+<p>create 메소드에서 createProduct 후 registerProduct 순서로 구현되고 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Factory</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> Product <span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>String owner<span style="color:#f92672">){</span>
+        Product p <span style="color:#f92672">=</span> createProduct<span style="color:#f92672">(</span>owner<span style="color:#f92672">);</span>
+        registerProduce<span style="color:#f92672">(</span>p<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> p<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">abstract</span> Product <span style="color:#a6e22e">createProduct</span><span style="color:#f92672">(</span>String owner<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">registerProduct</span><span style="color:#f92672">(</span>Product product<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IDCardFactory</span> <span style="color:#66d9ef">extends</span> Factory <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> List owners <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">protected</span> Product <span style="color:#a6e22e">createProduct</span><span style="color:#f92672">(</span>String owner<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> IDCard<span style="color:#f92672">(</span>owner<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">registerProduct</span><span style="color:#f92672">(</span>Product product<span style="color:#f92672">){</span>
+        owners<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(((</span>IDCard<span style="color:#f92672">)</span>product<span style="color:#f92672">).</span><span style="color:#a6e22e">getOwner</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
+        Factory factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IDCardFactory<span style="color:#f92672">();</span>
+        Product card1 <span style="color:#f92672">=</span> factory<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;홍길동&#34;</span><span style="color:#f92672">);</span>
+        Product card2 <span style="color:#f92672">=</span> factory<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;욱짱양&#34;</span><span style="color:#f92672">);</span>
+    	card1<span style="color:#f92672">.</span><span style="color:#a6e22e">use</span><span style="color:#f92672">();</span>
+        card2<span style="color:#f92672">.</span><span style="color:#a6e22e">use</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h5 id="factory-method-부연설명">Factory Method 부연설명</h5>
+<p>framework를 통해 전혀 다른 제품, 공장을 만들 수 있다.</p>
+<p>framework의 내용을 수정할 필요는 없다.</p>
+<p>factory는 공장을 의미한다.</p>
+<p>인스턴스를 만드는 공장을 Template Method 패턴으로 구성한 것이 Factory Method 패턴이다.</p>
+<p>Factory Method 패턴에서는 인스턴스 만드는 방법을 상위 클래스에서 결정하지만 구체적인 이름까지는 결정하지 않는다.</p>
+<p>구체적인 내용은 모두 하위 클래스에서 수행한다.</p>
+<p>따라서 인스턴스 생성을 위한 골격(framework)과 실제의 인스턴스 생성의 클래스를 분리해서 생각할 수 있다.</p>
+<hr>
+<p><!-- raw HTML omitted -->Java 언어로 배우는 디자인 패턴 입문 참고<!-- raw HTML omitted --></p>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "wookchangyang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-172670101-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

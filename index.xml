@@ -6,10 +6,21 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Oct 2020 15:45:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2020 01:45:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Design Pattern #1</title>
+      <link>https://changwookyang.github.io/post/designpatter1/</link>
+      <pubDate>Tue, 06 Oct 2020 01:45:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/designpatter1/</guid>
+      <description># 디자인 패턴 백설 공주를 연기하는 연기자가 누구이든 왕자와 백설공주는 사랑을 한다.
+디자인 패턴은 &amp;lsquo;역할&amp;rsquo;에 집중한다.
+디자인 패턴은 구성원이 다르더라도 부품이 어떻게 조립되어있고,</description>
+    </item>
     
     <item>
       <title>Static 변수, 클래스</title>
