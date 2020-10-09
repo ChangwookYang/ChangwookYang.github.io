@@ -16,7 +16,7 @@
 ex) 컴퓨터 자체를 표현한 클래스, 윈도우 시스템 등">
 <meta itemprop="datePublished" content="2020-10-07T21:45:00&#43;09:00" />
 <meta itemprop="dateModified" content="2020-10-07T21:45:00&#43;09:00" />
-<meta itemprop="wordCount" content="263">
+<meta itemprop="wordCount" content="713">
 
 
 
@@ -151,34 +151,203 @@ ex) 컴퓨터 자체를 표현한 클래스, 윈도우 시스템 등" />
 <p>static 필드의 초기화가 이루어지고 유일한 인스턴스가 생성된다.</p>
 </li>
 </ul>
+<hr>
 <h3 id="-chapter-6---prototype"># Chapter 6 - Prototype</h3>
 <ul>
 <li>
-<p>복사해서 인스턴스 만들기</p>
+<p><strong>복사해서 인스턴스 만들기</strong></p>
 </li>
 <li>
 <p>new 라는 Java 언어 키워드를 사용해서 클래스 이름을 지정해서 인스턴스 생성</p>
 <p>그러나 클래스 이름을 지정하지 않고 인스턴스를 생성하는 경우도 있다.</p>
-<ol>
-<li>종류가 너무 많아 클래스로 정리되지 않는 경우</li>
-</ol>
+<p><strong>1) 종류가 너무 많아 클래스로 정리되지 않는 경우</strong></p>
 <p>​	오브젝트 종류가 너무 많아 별도 클래스를 만들어 다수 소스파일을 만들어야 하는 경우</p>
-<ol start="2">
-<li>클래스로부터 인스턴스 생성이 어려운 경우 (인스턴스가 복잡한 작업을 거쳐 만들어지는 경우)</li>
-</ol>
+<p><strong>2) 클래스로부터 인스턴스 생성이 어려운 경우</strong> (인스턴스가 복잡한 작업을 거쳐 만들어지는 경우)</p>
 <p>​	만들어진 인스턴스를 일단 저장해두고 만들고 싶은 경우에 그것들을 복사</p>
-<ol start="3">
-<li>framework와 생성할 인스턴스를 분리</li>
-</ol>
+<p><strong>3) framework와 생성할 인스턴스를 분리</strong></p>
 <p>​	인스턴스를 생성할 때의 framework를 특정 클래스에 의존하지 않도록 만들고 싶은 경우</p>
 </li>
 <li>
 <p>프로토타입</p>
-<p>클래스로부터 인스턴스를 생성하는 것이 아닌 인스턴스로부터 별도의 인스턴스를 만드는 <strong>Prototype패턴</strong></p>
-<p>원형이 되는, 모법이 되는 인스턴스를 기초로 새로운 인스턴스를 만든다.</p>
+<p>클래스로부터 생성하지 않고 인스턴스로부터 별도 인스턴스를 만드는 <strong>Prototype패턴</strong></p>
+<p>원형이 되는, 모범이 되는 인스턴스를 기초로 새로운 인스턴스를 만든다.</p>
 </li>
 </ul>
-<p>&ndash; 추가 업데이트 예정..</p>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p>Product 인터페이스</p>
+<p><strong>java.lang.Cloneable 인터페이스를 상속</strong>하여 복제가능하다.</p>
+<p>Cloneable 인터페이스를 구현하고 있는 클래스의 인스턴스는</p>
+<p>clone메소드를 사용해서 자동적으로 복제할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> framework<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Product</span> <span style="color:#66d9ef">extends</span> Cloneable <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">use</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> Product <span style="color:#a6e22e">createClone</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>Manager 클래스</p>
+<p>Product 인터페이스를 이용해서 <strong>인스턴스의 복제를 실행</strong></p>
+<p>Manager 클래스에서는 구체적인 개개의 클래스 이름을 쓰지 않고</p>
+<p>단지 Product 인터페이스 이름만 사용하여 밀접도를 줄인다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> framework<span style="color:#f92672">;</span>
+  
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Manager</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> HashMap showcase <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">register</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">,</span> Product proto<span style="color:#f92672">){</span>
+        showcase<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>name<span style="color:#f92672">,</span> proto<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> Product <span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>String protoname<span style="color:#f92672">){</span>
+        Product p <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Product<span style="color:#f92672">)</span> showcase<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>protoname<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">createClone</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>MessageBox 클래스</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> framework.*<span style="color:#f92672">;</span>
+  
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MessageBox</span> <span style="color:#66d9ef">implements</span> Product <span style="color:#f92672">{</span>
+  
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">char</span> decochar<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MessageBox</span><span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> decochar<span style="color:#f92672">){</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">decochar</span> <span style="color:#f92672">=</span> decochar<span style="color:#f92672">;</span>	
+  <span style="color:#f92672">}</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">use</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">){</span>
+        <span style="color:#f92672">...</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> Product <span style="color:#a6e22e">createClone</span><span style="color:#f92672">(){</span>
+        Product p <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            p <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Product<span style="color:#f92672">)</span> clone<span style="color:#f92672">();</span>
+            <span style="color:#75715e">// clone() : 자기 자신을 복제하는 메소드
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// 복제를 생성할 때 인스턴스가 가지고 잇는 필드값도 그대로 복사.
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>CloneNotSupportedException e<span style="color:#f92672">){</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> p<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>Main 클래스</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 준비
+</span><span style="color:#75715e"></span>Manager manager <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Manager<span style="color:#f92672">();</span>
+MessageBox mbox <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MessageBox<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;*&#39;</span><span style="color:#f92672">);</span>
+MessageBox sbox <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MessageBox<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">);</span>
+manager<span style="color:#f92672">.</span><span style="color:#a6e22e">register</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;warning box&#34;</span><span style="color:#f92672">,</span> mbox<span style="color:#f92672">);</span>
+manager<span style="color:#f92672">.</span><span style="color:#a6e22e">register</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;slash box&#34;</span><span style="color:#f92672">,</span> sbox<span style="color:#f92672">);</span>
+<span style="color:#75715e">// 생성
+</span><span style="color:#75715e"></span>Product p1 <span style="color:#f92672">=</span> manager<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;warning box&#34;</span><span style="color:#f92672">);</span>
+p1<span style="color:#f92672">.</span><span style="color:#a6e22e">use</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">);</span>
+Product p2 <span style="color:#f92672">=</span> manager<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;slash box&#34;</span><span style="color:#f92672">);</span>
+p2<span style="color:#f92672">.</span><span style="color:#a6e22e">use</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello world&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div></li>
+</ul>
+<hr>
+<h3 id="-chapter-7---builder"># Chapter 7 - Builder</h3>
+<ul>
+<li>
+<p><strong>복잡한 인스턴스 조립하기</strong></p>
+</li>
+<li>
+<p>일반적으로 복잡한 구조물을 세울 때 한번에 완성시키기는 어렵다</p>
+<p>전체를 구성하는 각 부분을 만들고 단계를 밟아 만들어간다.</p>
+</li>
+<li>
+<p>예제) &lsquo;문서&rsquo;를 작성하는 프로그램</p>
+<blockquote>
+<p>문서형식</p>
+<ol>
+<li>
+<p>타이틀을 포함</p>
+</li>
+<li>
+<p>문자열을 포함</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ol start="3">
+<li>개별 항목을 포함</li>
+</ol>
+</blockquote>
+<p><strong>Builder 클래스</strong>는 문서를 구성하기 위한 메소드를 결정한다.</p>
+<p><strong>Director 클래스</strong>는 그 메소드를 사용해서 구체적인 하나의 문서를 만든다.</p>
+<p>Builder 클래스는 추상메소드만 선언되어 있고 구체적인 구현은 하위 클래스가 한다.</p>
+<p><img src="https://user-images.githubusercontent.com/66955409/95548611-6abeb580-0a40-11eb-8905-cccc4e3e48af.png" alt="image"></p>
+<ul>
+<li>
+<p>Builder 클래스</p>
+<p>Builder 클래스는 &lsquo;문서&rsquo;를 만들 메소드들을 선언하고 있는 추상클래스</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Builder</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeTitle</span><span style="color:#f92672">(</span>String title<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeString</span><span style="color:#f92672">(</span>String str<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeItems</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> items<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>Director 클래스</p>
+<p>Director 클래스에서는 Builder 클래스로 선언되어 있는 메소드를 사용해서 문서를 만든다.</p>
+<p>Director 클래스의 생성자 인수는 Builder 형이나 실제로 Builder 클래스는 추상클래스여서</p>
+<p>인스턴스로 주어지는 경우는 없고 Builder클래스의 하위 클래스의 인스턴스가 주어진다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Director</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> Builder builder<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Director</span><span style="color:#f92672">(</span>Builder builder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// Builder의 하위 클래스의 인스턴스가 주어지므로
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// builder 필드에 저장해둔다.
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span> <span style="color:#f92672">=</span> builder<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+      
+    <span style="color:#75715e">// contruct 메소드는 문서를 만드는 메소드
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">construct</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        builder<span style="color:#f92672">.</span><span style="color:#a6e22e">makeTitle</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Greeting&#34;</span><span style="color:#f92672">);</span>
+        builder<span style="color:#f92672">.</span><span style="color:#a6e22e">makeString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;아침과 낮에&#34;</span><span style="color:#f92672">);</span>
+        builder<span style="color:#f92672">.</span><span style="color:#a6e22e">makeItems</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]{</span>
+           <span style="color:#e6db74">&#34;좋은 아침입니다.&#34;</span><span style="color:#f92672">,</span>
+           <span style="color:#e6db74">&#34;안녕하세요.&#34;</span><span style="color:#f92672">,</span>
+        <span style="color:#f92672">});</span>
+        builder<span style="color:#f92672">.</span><span style="color:#a6e22e">makeString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;밤에&#34;</span><span style="color:#f92672">);</span>
+        builder<span style="color:#f92672">.</span><span style="color:#a6e22e">makeItems</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]{</span>
+           <span style="color:#e6db74">&#34;안녕하세요&#34;</span><span style="color:#f92672">,</span>
+           <span style="color:#e6db74">&#34;안녕히주무세요&#34;</span><span style="color:#f92672">,</span>
+           <span style="color:#e6db74">&#34;안녕히 계세요&#34;</span>
+        <span style="color:#f92672">});</span>
+        builder<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>TextBuilder 클래스</p>
+<p>TextBuilder 클래스는 Builder 클래스의 하위 클래스입니다.</p>
+<p>일반 텍스트를 사용해서 문서를 구축하고 결과는 String으로 반환합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBuilder</span> <span style="color:#66d9ef">extends</span> Builder <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> StringBuffer buffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuffer<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeTitle</span><span style="color:#f92672">(</span>String title<span style="color:#f92672">){</span>
+        buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;==========================\n&#34;</span><span style="color:#f92672">);</span>
+        buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#f92672">+</span> title <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;*\n&#34;</span><span style="color:#f92672">);</span>
+        buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\n&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">// makeString makeItems 생략...
+</span><span style="color:#75715e"></span>         
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getResult</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>Main 클래스</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">TextBuilder textbuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TextBuilder<span style="color:#f92672">();</span>
+Director director <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Director<span style="color:#f92672">(</span>textbuilder<span style="color:#f92672">);</span>
+director<span style="color:#f92672">.</span><span style="color:#a6e22e">construct</span><span style="color:#f92672">();</span>
+String result <span style="color:#f92672">=</span> textbuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">getResult</span><span style="color:#f92672">();</span>
+sysout<span style="color:#f92672">(</span>result<span style="color:#f92672">);</span>
+</code></pre></div></li>
+</ul>
 
 </div>
 
