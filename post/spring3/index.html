@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>Spring 3대 특징 &middot; WOOKLOG</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Spring 3대 특징">
+<meta itemprop="description" content="Spring 3대 특징 출처
+- POJO (Plain Old Java Object) Servlet 형식에 맞추지 않고 추상화되어 라이브러리에 들어가 있으므로
+개발자는 비지니스 로직에만 집중하면 된다.">
+<meta itemprop="datePublished" content="2020-10-26T23:10:00&#43;09:00" />
+<meta itemprop="dateModified" content="2020-10-26T23:10:00&#43;09:00" />
+<meta itemprop="wordCount" content="364">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring 3대 특징"/>
+<meta name="twitter:description" content="Spring 3대 특징 출처
+- POJO (Plain Old Java Object) Servlet 형식에 맞추지 않고 추상화되어 라이브러리에 들어가 있으므로
+개발자는 비지니스 로직에만 집중하면 된다."/>
+
+
+<meta property="og:title" content="Spring 3대 특징" />
+<meta property="og:description" content="Spring 3대 특징 출처
+- POJO (Plain Old Java Object) Servlet 형식에 맞추지 않고 추상화되어 라이브러리에 들어가 있으므로
+개발자는 비지니스 로직에만 집중하면 된다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/spring3/" />
+<meta property="article:published_time" content="2020-10-26T23:10:00+09:00" />
+<meta property="article:modified_time" content="2020-10-26T23:10:00+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>WOOKLOG</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Spring 3대 특징</h1>
+
+  <div class="post-date">
+    <time datetime="2020-10-26T23:10:00&#43;0900">Oct 26, 2020</time>
+  </div>
+
+  <h1 id="spring-3대-특징">Spring 3대 특징</h1>
+<p><a href="https://asfirstalways.tistory.com/334">출처</a></p>
+<h3 id="--pojo-plain-old-java-object">- POJO (Plain Old Java Object)</h3>
+<p>Servlet 형식에 맞추지 않고 추상화되어 라이브러리에 들어가 있으므로</p>
+<p>개발자는 비지니스 로직에만 집중하면 된다.</p>
+<h3 id="--ioc와-aop를-지원하는-경량의-컨테이너-프레임워크">- IOC와 AOP를 지원하는 경량의 컨테이너 프레임워크</h3>
+<ul>
+<li>
+<p>컨테이너란?</p>
+<p>컨테이너는 특정 객체의 생성과 관리를 담당하며 객체 운용에 필요한 다양한 기능을 제공한다.</p>
+<p>애플리케이션 운용에 필요한 객체를 생성하고 객체 간의 의존관계를 관리한다는 점에서 스프링도 컨테이너이다.</p>
+</li>
+<li>
+<p>스프링 컨테이너의 종류</p>
+<p>BeanFactory와 이를 상속한 ApplicationContext 두 가지 컨테이너를 제공한다.</p>
+<p>BeanFactory는 스프링 설정파일에 등록된 bean 객체를 생성하고 관리하는 가장 기본적인 컨테이너 기능을 제공한다.</p>
+<p>컨테이너가 구동될 때 객체가 생성하는 것이 아니라 클라이언트로부터의 요청에 의해서만 객체를 생성한다.(lazy loading)</p>
+<p>이를 확장한 ApplicationContext 컨테이너는 이 기능에 더해 트랜잭션 관리나 메시지 기반의 다국어 처리 등 다양한 기능을 지원한다.</p>
+<p>또한 컨테이너가 구동되는 시점에 bean에 등록되어 있는 클래스들을 객체화하는 즉시 로딩 방식으로 동작한다.</p>
+<ul>
+<li>
+<p>정리하자면 스프링 컨에티너는</p>
+<p>bean 저장소에 해당하는 xml 설정파일을 참조하여 bean의 생명주기를 관리하고 여러 서비스를 제공한다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>IoC / DI (Inversion of Control / Dependency Injection) - 제어의 역전 / 의존성 주입</p>
+<p>비즈니스 컴포넌트를 개발할 때 항상 신경쓰는 것이 낮은 결합도와 높은 응집도 이다.</p>
+<p>스프링은 제어의 역행을 통해 애플리케이션을 구성하는 객체 간의 느슨한 결합, 즉 낮은 결합도를 유지한다.</p>
+<p>스프링의 IoC는 객체 생성을 자바 코드로 직접 처리하는 것이 아니라 컨테이너가 대신 처리하게 한다.</p>
+<p>그리고 객체와 객체 사이의 의존 관계 역시 컨테이너가 처리한다.</p>
+</li>
+<li>
+<p>의존성 주입(DI)은 무엇인가?</p>
+<p>의존성 관계란 객체와 객체의 결합 관계이다.</p>
+<p>하나의 객체에서 다른 객체의 변수나 메소드를 이용해야 한다면,</p>
+<p>이용하려는 객체에 대한 객체 생성과 생성된 객체의 레퍼런스 정보가 필요하다.</p>
+<p>즉, 쉽게 말해서 이존성은 new다. A라는 객체 생성자에서 new B();를 했다면 A는 B에 의존하게 된다.</p>
+<p>주입이란 외부에서라는 뜻을 내포하고 있다.</p>
+<p>즉 A라는 객체에서 B를 생성하는 것이 아니라 외부에서 생성된 B를 A에 주입함으로써 의존관계를 없앨 수 있다.</p>
+<p>이것을 의존성 주입이라고 한다.</p>
+</li>
+<li>
+<p>AOP (Aspect Oriented Programming)</p>
+<p>관점지향 프로그래밍</p>
+<p>DI가 의존성에 대한 주입이라면 AOP는 로직 주입이다.</p>
+<p>코드를 작성하다보면 다수의 모듈에 공통적으로 나타나는 부분이 존재하는데 이를 횡단 관심이라한다.</p>
+<p>그리고 모듈 각각 고유한 로직을 핵심 관심사라고 한다.</p>
+<p>즉 각 모듈을 구성하고 있는 코드는 핵심관심사와 횡단관심사가 합쳐진 것이다.</p>
+<p>AOP는 모듈마다 중복되는 부분을 걷어내는 것이 주목적이다.</p>
+</li>
+<li>
+<p>PSA (Portable Service Abstraction)</p>
+<p>일관성 있는 서비스 추상화이다.</p>
+<p>JDBC처럼 어댑터 패턴을 적용하여 같은 일을 하는 다수의 기술을</p>
+<p>공통의 인터페이스로 제어할 수 있게 한것을 서비스 추상화라고 한다.</p>
+<p>스프링 프레임워크에서는 서비스 추상화를 위해 다양한 어댑터를 제공한다.</p>
+<p>스프링은 OXM, ORM, 캐시, 트랜잭션 등 다양한 기술에 대한 PSA 즉 API를 제공한다.</p>
+</li>
+</ul>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "wookchangyang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2020
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-172670101-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

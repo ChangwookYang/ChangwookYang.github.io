@@ -6,10 +6,21 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Oct 2020 21:45:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2020 23:10:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring 3대 특징</title>
+      <link>https://changwookyang.github.io/post/spring3/</link>
+      <pubDate>Mon, 26 Oct 2020 23:10:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/spring3/</guid>
+      <description>Spring 3대 특징 출처
+- POJO (Plain Old Java Object) Servlet 형식에 맞추지 않고 추상화되어 라이브러리에 들어가 있으므로
+개발자는 비지니스 로직에만 집중하면 된다.</description>
+    </item>
     
     <item>
       <title>Design Pattern #2</title>
