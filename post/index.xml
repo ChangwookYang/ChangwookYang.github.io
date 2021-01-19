@@ -6,10 +6,21 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Oct 2020 23:10:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 Jan 2021 00:10:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gradle 멀티 프로젝트</title>
+      <link>https://changwookyang.github.io/post/gradlemulti/</link>
+      <pubDate>Wed, 20 Jan 2021 00:10:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/gradlemulti/</guid>
+      <description>Gradle 멀티 프로젝트 관리 참고 : https://jojoldu.tistory.com/123
+ 공통으로 사용되는 클래스를 여러 프로젝트에서 사용한다면 비효율적이다.
+Multi module 방식으로 사용하면 소스관리도 쉽고 편안!</description>
+    </item>
     
     <item>
       <title>Spring 3대 특징</title>
