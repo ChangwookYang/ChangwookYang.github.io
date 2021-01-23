@@ -6,10 +6,21 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Jan 2021 00:05:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jan 2021 21:20:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MySQL</title>
+      <link>https://changwookyang.github.io/post/mysql/</link>
+      <pubDate>Sat, 23 Jan 2021 21:20:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/mysql/</guid>
+      <description>Oracle vs MySQL   컬럼값이 null일때 대체해주는 방법이 다르다.
+ Oracle : SELECT NVL(USER_ID, &amp;lsquo;&#39;) FROM USER;
+MySQLSELECT IFNULL(USER_ID, &amp;lsquo;&#39;) FROM USER;</description>
+    </item>
     
     <item>
       <title>RabbitMQ</title>
