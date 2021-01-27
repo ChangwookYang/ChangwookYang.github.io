@@ -6,10 +6,19 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Jan 2021 01:20:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 28 Jan 2021 01:20:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>클러스터 미러링 용어</title>
+      <link>https://changwookyang.github.io/post/clustermirroring/</link>
+      <pubDate>Thu, 28 Jan 2021 01:20:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/clustermirroring/</guid>
+      <description>클러스터 컴퓨팅 파워를 증가시키기 위한 방법이다. 여러 대의 일반 워크스테이션을 네트워크로 연결하여 하나의 PC처럼 작동하게 하는 기술이다. 워크스테이션의 CPU 성능이 좋아지고 네트워크 속도 또한 엄청나게 발달하여 가능해졌다.</description>
+    </item>
     
     <item>
       <title>Database Index</title>
