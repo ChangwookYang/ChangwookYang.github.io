@@ -6,10 +6,20 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Jan 2021 01:20:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 30 Jan 2021 12:30:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>@Transactional(1)</title>
+      <link>https://changwookyang.github.io/post/transactional1/</link>
+      <pubDate>Sat, 30 Jan 2021 12:30:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/transactional1/</guid>
+      <description>Spring에서 JPA 기술을 쓸 때 빼놓을 수 없는 기능 중 하나   transaction begin, commit을 자동 수행해준다.
+  예외 발생 시, rollback 처리를 자동 수행해준다.</description>
+    </item>
     
     <item>
       <title>클러스터 미러링 용어</title>
