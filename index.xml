@@ -6,10 +6,20 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Jan 2021 04:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 05 Feb 2021 16:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux 기본명령어</title>
+      <link>https://changwookyang.github.io/post/linux/</link>
+      <pubDate>Fri, 05 Feb 2021 16:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/linux/</guid>
+      <description>모든 명령어는 명령어 뒤에 &amp;ndash;help 옵션을 주면 자세한 사용 방법이 나온다.
+예를 들어 ls 명령어의 자세한 사용방법과 옵션을 알고싶으면 ls &amp;ndash;help를 입력하면 된다.</description>
+    </item>
     
     <item>
       <title>@Transactional(2)</title>
