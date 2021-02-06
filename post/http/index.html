@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>HTTP 프로토콜 &middot; WOOKLOG</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="HTTP 프로토콜">
+<meta itemprop="description" content="정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙  설명  요청 : 데이터 주세요! client -&gt; server : request 응답 : 여기 데이터~!">
+<meta itemprop="datePublished" content="2021-02-06T23:00:00&#43;09:00" />
+<meta itemprop="dateModified" content="2021-02-06T23:00:00&#43;09:00" />
+<meta itemprop="wordCount" content="154">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTTP 프로토콜"/>
+<meta name="twitter:description" content="정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙  설명  요청 : 데이터 주세요! client -&gt; server : request 응답 : 여기 데이터~!"/>
+
+
+<meta property="og:title" content="HTTP 프로토콜" />
+<meta property="og:description" content="정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙  설명  요청 : 데이터 주세요! client -&gt; server : request 응답 : 여기 데이터~!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/http/" />
+<meta property="article:published_time" content="2021-02-06T23:00:00+09:00" />
+<meta property="article:modified_time" content="2021-02-06T23:00:00+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>WOOKLOG</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>HTTP 프로토콜</h1>
+
+  <div class="post-date">
+    <time datetime="2021-02-06T23:00:00&#43;0900">Feb 6, 2021</time>
+  </div>
+
+  <h4 id="정의--인터넷에서-데이터를-주고-받을-수-있는-규칙">정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙</h4>
+<hr>
+<h4 id="설명">설명</h4>
+<ul>
+<li>요청 : 데이터 주세요! client -&gt; server : request</li>
+<li>응답 : 여기 데이터~! server -&gt; client : response</li>
+</ul>
+<p>이러한 응답과 요청을 일정한 규칙으로 통신하는데 이 규칙을 http라고 한다.</p>
+<p><img src="https://media.vlpt.us/images/jch9537/post/ae79ffd3-360a-4782-abc2-5cdd11071422/image.png" alt="image"></p>
+<p>왼쪽은 주문서, 오른쪽은 영수증 정도로 이해하면 된다.</p>
+<h4 id="상세">상세</h4>
+<ul>
+<li>
+<p>요청</p>
+<p><img src="https://media.vlpt.us/images/jch9537/post/9932af0c-2a25-4558-8b9f-93f01375f580/image.png" alt="image"></p>
+</li>
+<li>
+<p>응답</p>
+<p><img src="https://media.vlpt.us/images/jch9537/post/ca86f5c2-068a-47c9-aad2-a10a64706041/image.png" alt="image"></p>
+</li>
+</ul>
+<hr>
+<hr>
+<h4 id="http-프로토콜이란">HTTP 프로토콜이란?</h4>
+<p>HTTP 프로토콜은 웹 브라우저와 웹 서버 사이의 데이터 통신 규칙을 말한다.</p>
+<p><img src="https://t1.daumcdn.net/cfile/tistory/2104874555A214D53A" alt="image"></p>
+<p>즉 HTTP 통신 규약에 맞추어서 요청한다면</p>
+<p>HTML 파일을 요청하면 HTML파일을 보내주고, 이미지 파일을 요청하면 이미지 파일은 보내준다.</p>
+<p>http 요청 응답에 대한 내부적으로 어떻게 동작하고 있는가?</p>
+<h4 id="요청과정request">요청과정(Request)</h4>
+<p>요청라인, 요청헤더, 공백라인과 요청 데이터로 구성</p>
+<p>GET /web04/member/list HTTP/1.1</p>
+<p>Host:localhost:9999</p>
+<p>Cache-Control: max-age=0</p>
+<p>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</p>
+<p>User-Agent: Mozila/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)</p>
+<p>Chrome/43.0.2357.132 Safari/537.36</p>
+<p>Accept-Encoding: gzip, deflate, sdch</p>
+<p>Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4</p>
+<h5 id="요청-라인request-line">요청 라인(Request-Line)</h5>
+<p><img src="https://t1.daumcdn.net/cfile/tistory/233A984555A214D718" alt="image"></p>
+<h5 id="요청-헤더">요청 헤더</h5>
+<ul>
+<li>요청이나 응답 모두에 적용할 수 있는 일반헤더(General Header)</li>
+<li>요청 또는 응답 둘 중에 하나에만 적용할 수 있는 요청 헤더 또는 응답헤더</li>
+<li>보내거나 받는 본문 데이터를 설명하는 엔티티 헤더</li>
+</ul>
+<p>참고 : <a href="https://velog.io/@jch9537/WEB-HTTP">https://velog.io/@jch9537/WEB-HTTP</a></p>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "wookchangyang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2021
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-172670101-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

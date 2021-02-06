@@ -6,10 +6,19 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Feb 2021 16:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 06 Feb 2021 23:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP 프로토콜</title>
+      <link>https://changwookyang.github.io/post/http/</link>
+      <pubDate>Sat, 06 Feb 2021 23:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/http/</guid>
+      <description>정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙  설명  요청 : 데이터 주세요! client -&amp;gt; server : request 응답 : 여기 데이터~!</description>
+    </item>
     
     <item>
       <title>Linux 기본명령어</title>
@@ -447,6 +456,15 @@ KEYWORD ! &amp;ldquo;배제&amp;rdquo;, &amp;ldquo;풀이 시간 단축&amp;rdqu
       
       <guid>https://changwookyang.github.io/post/binarysearch/</guid>
       <description>이분 탐색 이분 탐색 / 이진 탐색 알고리즘은 탐색하는 범위를 줄여나가며 원하는 값을 탐색하는 알고리즘   배열을 완전 탐색하는 알고리즘(brute force)은 상황에 따라 다르지만, o(N) 보다 크거나 같은 시간복잡도를 가진다.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://changwookyang.github.io/post/http2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/http2/</guid>
+      <description>HTTP 프로토콜 정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙  설명  요청 : 데이터 주세요! client -&amp;gt; server : request 응답 : 여기 데이터~!</description>
     </item>
     
   </channel>
