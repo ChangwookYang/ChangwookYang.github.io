@@ -6,10 +6,19 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Feb 2021 23:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Feb 2021 23:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring boot Batch</title>
+      <link>https://changwookyang.github.io/post/springbootbatch/</link>
+      <pubDate>Sun, 07 Feb 2021 23:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/springbootbatch/</guid>
+      <description>Spring Boot Batch 강점  자동화 대용량 처리 견고성 : 예측못한 상황이나 동작에 대한 예외 처리도 정의 가능 재사용성 : 공통적인 작업을 단위별로 재사용  Spring Boot Batch 고려사항  단순하게 : 복잡한구조, 로직을 피해야한다.</description>
+    </item>
     
     <item>
       <title>HTTP 프로토콜</title>

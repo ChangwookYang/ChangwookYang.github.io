@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://changwookyang.github.io/post/http/</loc>
-    <lastmod>2021-02-06T23:00:00+09:00</lastmod>
+    <loc>https://changwookyang.github.io/post/</loc>
+    <lastmod>2021-02-07T23:00:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://changwookyang.github.io/post/</loc>
-    <lastmod>2021-02-06T23:00:00+09:00</lastmod>
+    <loc>https://changwookyang.github.io/post/springbootbatch/</loc>
+    <lastmod>2021-02-07T23:00:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://changwookyang.github.io/</loc>
+    <lastmod>2021-02-07T23:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://changwookyang.github.io/post/http/</loc>
     <lastmod>2021-02-06T23:00:00+09:00</lastmod>
   </url>
   
