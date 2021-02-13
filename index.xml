@@ -6,10 +6,20 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Feb 2021 17:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 14 Feb 2021 00:30:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP 웹 기본지식(4) - HTTP 상태코드</title>
+      <link>https://changwookyang.github.io/post/httpinflearn4/</link>
+      <pubDate>Sun, 14 Feb 2021 00:30:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/httpinflearn4/</guid>
+      <description>상태코드  클라이언트가 보낸 요청의 처리 상태를 응답에서 알려주는 기능
+  1xx (Informational) : 요청이 수신되어 처리중(거의 사용X) 2xx (Successful) : 요청 정상 처리 3xx (Redirection) : 요청을 완료하려면 추가 행동이 필요 4xx (Client Error) : 클라이언트 오류, 잘못된 문법등으로 서버가 요청을 수행할 수 없음 5xx (Server Error) : 서버 오류, 서버가 정상 요청을 처리하지 못함  2xx - 성공  클라이언트의 요청을 성공적으로 처리</description>
+    </item>
     
     <item>
       <title>HTTP 웹 기본지식(3) - HTTP 메서드</title>
