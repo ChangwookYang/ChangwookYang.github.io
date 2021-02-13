@@ -6,10 +6,21 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Feb 2021 15:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Feb 2021 17:30:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP 웹 기본지식(3) - HTTP 메서드</title>
+      <link>https://changwookyang.github.io/post/httpinflearn3/</link>
+      <pubDate>Sat, 13 Feb 2021 17:30:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/httpinflearn3/</guid>
+      <description>HTTP API  URI 설계에 가장 중요한 것은 리소스 식별
+   리소스의 의미는 뭘까?
+ 회원을 등록하고 수정하고 조회하는게 리소스가 아니다.</description>
+    </item>
     
     <item>
       <title>HTTP 웹 기본지식(2) - HTTP 기본</title>
