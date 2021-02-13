@@ -6,10 +6,19 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Feb 2021 22:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Feb 2021 15:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP 웹 기본지식(2) - HTTP 기본</title>
+      <link>https://changwookyang.github.io/post/httpinflearn2/</link>
+      <pubDate>Sat, 13 Feb 2021 15:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/httpinflearn2/</guid>
+      <description>모든 것이 HTTP - HTTP 메시지에 모든 것을 전송  HTML, TEXT Image, 음성, 영상, 파일 JSON, XML 거의 모든 형태의 데이터 전송 가능 서버 간에 데이터를 주고 받을때도 대부분 HTTP 사용 지금은 HTTP 시대!</description>
+    </item>
     
     <item>
       <title>HTTP 웹 기본지식(1)</title>
