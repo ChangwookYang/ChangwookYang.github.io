@@ -6,10 +6,20 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Feb 2021 00:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 14 Feb 2021 23:30:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP 웹 기본지식(5) - HTTP 헤더</title>
+      <link>https://changwookyang.github.io/post/httpinflearn5/</link>
+      <pubDate>Sun, 14 Feb 2021 23:30:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/httpinflearn5/</guid>
+      <description>HTTP 헤더   HTTP 전송에 필요한 모든 부가 정보
+  예) 메시지 바디의 내용, 메시지 바디의 크기, 압축, 인증, 요청 클라이언트,</description>
+    </item>
     
     <item>
       <title>HTTP 웹 기본지식(4) - HTTP 상태코드</title>
