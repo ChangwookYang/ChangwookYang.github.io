@@ -6,10 +6,21 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Feb 2021 23:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Feb 2021 23:30:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java HashMap의 동작 원리</title>
+      <link>https://changwookyang.github.io/post/javahashmap/</link>
+      <pubDate>Sat, 20 Feb 2021 23:30:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/javahashmap/</guid>
+      <description>Java HashMap은 어떻게 동작하는가? HashMap은 Java Collection Framework에 속한 구현체 클래스이다.
+이글에서는 어떤 방식으로 HashMap 구현체의 성능을 향상시켰는지 소개한다.
+구체적인 내용은 Amortized Constant Time 을 위하여 어떻게 해시 충돌 가능성을 줄이고 있는가이다.</description>
+    </item>
     
     <item>
       <title>WEB, WAS?</title>
@@ -536,6 +547,17 @@ KEYWORD ! &amp;ldquo;배제&amp;rdquo;, &amp;ldquo;풀이 시간 단축&amp;rdqu
       
       <guid>https://changwookyang.github.io/post/http2/</guid>
       <description>HTTP 프로토콜 정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙  설명  요청 : 데이터 주세요! client -&amp;gt; server : request 응답 : 여기 데이터~!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://changwookyang.github.io/post/networkbasic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/networkbasic/</guid>
+      <description>생활코딩 - 인터넷 IP 주소 각자 고유한 주소
+도메인 IP 주소를 기억하기 어려우니 도메인을 설정한다.
+ 컴퓨터는 도메인을 통해 접속할 수 없고 IP를 통해서만 접속이 가능하다.</description>
     </item>
     
   </channel>
