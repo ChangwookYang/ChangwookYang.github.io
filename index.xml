@@ -6,10 +6,21 @@
     <description>Recent content on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Feb 2021 10:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 23 Feb 2021 23:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Redis란?</title>
+      <link>https://changwookyang.github.io/post/redis/</link>
+      <pubDate>Tue, 23 Feb 2021 23:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/redis/</guid>
+      <description>Redis는 REmote Dictionary Server의 약자로 &amp;ldquo;key-value&amp;rdquo; 기반 인메모리 비관계형 데이터베이스다.
+모든 데이터를 메모리에 저장하고 조회하기떄문에 Read, Write 속도를 보장한다.
+value에 다양한 자료구조를 지원하여 사용자 애플리케이션 개발 시에 활용도가 높다.</description>
+    </item>
     
     <item>
       <title>생활코딩 - 인터넷 Basic</title>
@@ -558,6 +569,16 @@ KEYWORD ! &amp;ldquo;배제&amp;rdquo;, &amp;ldquo;풀이 시간 단축&amp;rdqu
       
       <guid>https://changwookyang.github.io/post/http2/</guid>
       <description>HTTP 프로토콜 정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙  설명  요청 : 데이터 주세요! client -&amp;gt; server : request 응답 : 여기 데이터~!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://changwookyang.github.io/post/livecodingaws1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/livecodingaws1/</guid>
+      <description>생활코딩 - AWS(1)  클라우드 컴퓨팅 : 인터넷에 연결되어 있는 거대한 컴퓨터를 사용한다.
+ Region 지역 전세계에 아마존의 컴퓨터가 여러 곳에 흩어져 있다.</description>
     </item>
     
   </channel>
