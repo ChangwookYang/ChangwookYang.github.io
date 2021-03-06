@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <title>AWS 정리(2) &middot; WOOKLOG</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="AWS 정리(2)">
+<meta itemprop="description" content="Amazon Virtual Private Cloud (VPC)  AWS Cloud의 프라이빗 네트워크 공간 워크로드에 대한 논리적 격리를 제공한다. 리소스에 대한 사용자 지정 액세스 제어 및 보안 설정을 허용한다.">
+<meta itemprop="datePublished" content="2021-03-06T21:00:00&#43;09:00" />
+<meta itemprop="dateModified" content="2021-03-06T21:00:00&#43;09:00" />
+<meta itemprop="wordCount" content="333">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AWS 정리(2)"/>
+<meta name="twitter:description" content="Amazon Virtual Private Cloud (VPC)  AWS Cloud의 프라이빗 네트워크 공간 워크로드에 대한 논리적 격리를 제공한다. 리소스에 대한 사용자 지정 액세스 제어 및 보안 설정을 허용한다."/>
+
+
+<meta property="og:title" content="AWS 정리(2)" />
+<meta property="og:description" content="Amazon Virtual Private Cloud (VPC)  AWS Cloud의 프라이빗 네트워크 공간 워크로드에 대한 논리적 격리를 제공한다. 리소스에 대한 사용자 지정 액세스 제어 및 보안 설정을 허용한다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://changwookyang.github.io/post/awss2/" />
+<meta property="article:published_time" content="2021-03-06T21:00:00+09:00" />
+<meta property="article:modified_time" content="2021-03-06T21:00:00+09:00" />
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>WOOKLOG</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://changwookyang.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>AWS 정리(2)</h1>
+
+  <div class="post-date">
+    <time datetime="2021-03-06T21:00:00&#43;0900">Mar 6, 2021</time>
+  </div>
+
+  <h4 id="amazon-virtual-private-cloud-vpc">Amazon Virtual Private Cloud (VPC)</h4>
+<ul>
+<li>AWS Cloud의 프라이빗 네트워크 공간</li>
+<li>워크로드에 대한 논리적 격리를 제공한다.</li>
+<li>리소스에 대한 사용자 지정 액세스 제어 및 보안 설정을 허용한다.</li>
+<li>점유 리소스에 대한 특정 CIDR 범위를 생성할 수 있다.</li>
+</ul>
+<h5 id="서브넷을-사용하여-vpc-분리">서브넷을 사용하여 VPC 분리</h5>
+<p>Amazon VPC를 사용하면 고객들이 가상 네트워크를 생성하고 이를 서브넷으로 분할할 수 있다.</p>
+<p>VPC서브넷은 특정 가용 영역에 매핑된다.</p>
+<p>따라서 서브넷 배치는 EC인스턴스를 여러 위칭 올바르게 분산할 수 있도록 보장하는 하나의 메커니즘이다.</p>
+<p>서브넷을 생성할 때는 VP CIDR블록의 하위 집합에 속하는 CIDR블록은 지정해야한다.</p>
+<p>각 서브넷은 하나의 가용역역 내에 모두 상주해야하며,</p>
+<p>다른 영역으로 확장할 수는 없다.</p>
+<h5 id="서브넷--키-속성">서브넷 : 키 속성</h5>
+<p>서브넷은 VPC CIDR 블록의 하위 집합이다.</p>
+<p>서브넷 CIDR 블록은 중첩될 수 없다.</p>
+<p>각 서브넷은 하나의 가용 영역 내에서만 존재한다.</p>
+<p>가용역역에 서브넷이 여러개 포함될 수 있다.</p>
+<p>AWS는 각 서브넷에서 5개의 IP 주소를 예약한다.</p>
+<h5 id="라우팅-테이블">라우팅 테이블</h5>
+<ul>
+<li>
+<p>VPC 리소스 간에 트래픽을 연결하는데 필요하다.</p>
+</li>
+<li>
+<p>각 VPC에는 주요 라우팅 테이블이 있다.</p>
+</li>
+<li>
+<p>사용자 지정 라우팅 테이블을 생성할 수 있다.</p>
+</li>
+<li>
+<p>모든 서브넷에는 연결된 라우팅 테이블이 있어야 한다.</p>
+<ul>
+<li>라우팅 테이블은 네트워크 트래픽이 향하는 방향을 결정하는데 사용되는 경로</li>
+</ul>
+</li>
+<li>
+<p>VPC를 생성하면, 자동으로 기본 라우팅 테이블이 생성된다.</p>
+</li>
+</ul>
+<h5 id="서브넷을-통해-허용되는-다양한-네트워크-격리">서브넷을 통해 허용되는 다양한 네트워크 격리</h5>
+<p>서브넷을 사용하여 인터넷 액세스 접근성을 정의한다.</p>
+<ul>
+<li>
+<p>퍼블릭 서브넷</p>
+<ul>
+<li>
+<p>퍼블릭 인터넷에 대한 인바운드/아웃바운드 액세스를 지원하도록</p>
+<p>인터넷 게이트웨이에 대한 라우팅 테이블 항목을 포함한다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>프라이빗 서브넷</p>
+<ul>
+<li>
+<p>인터넷 게이트웨이에 대한 라우팅 테이블 항목이 없다.</p>
+</li>
+<li>
+<p>퍼블릭 인터넷에서 직접 액세스 할 수 없다.</p>
+</li>
+<li>
+<p>일반적으로 제한된 아웃 바운드 퍼블릭 인터넷 액세스를</p>
+<p>지원하기 위해 NAT 게이트웨이를 사용한다.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="퍼블릭-서브넷에-인터넷-연결">퍼블릭 서브넷에 인터넷 연결</h5>
+<ul>
+<li>인터넷 게이트웨이
+<ul>
+<li>VPC의 인스턴스와 인터넷 간에 통신을 허용한다.</li>
+<li>기본적으로 가용성이 뛰어나고 중복적이며, 수평적으로 확장된다.</li>
+<li>인터넷으로 라우팅 가능한 트래픽에 대한 서브넷 라우팅 테이블에 대상을 제공한다.</li>
+</ul>
+</li>
+</ul>
+<h5 id="프라이빗-서브넷에-인터넷-연결">프라이빗 서브넷에 인터넷 연결</h5>
+<ul>
+<li>
+<p>NAT 게이트웨이</p>
+<ul>
+<li>프라이빗 서브넷의 인스턴스가</li>
+</ul>
+<p>인터넷 또는 다른 aws 서비스로의 아웃바운드 트래픽을 시작하도록 활성화한다.</p>
+<ul>
+<li>프라이빗 인스턴스가  인터넷에서 인바운드 트래픽을 수신하는 것을 차단한다.</li>
+</ul>
+</li>
+</ul>
+<h5 id="기본-서브넷-구성">기본 서브넷 구성</h5>
+<ul>
+<li>
+<p>서브넷을 설정하기 위한 가장 좋은 방법을 잘 모르는 경우</p>
+<ul>
+<li>
+<p>가용 영역당 1개의 퍼블릭 서브넷과 1개의 프라이빗 서브넷으로 시작한다.</p>
+</li>
+<li>
+<p>서브넷은 인터넷 접근성을 정의하는데 사용되어야 하므로</p>
+<p>가용영역 당 1개의 퍼블릭 서브넷과 1개의 프라이빗 서브넷보다 많을 필요는 없다.</p>
+</li>
+<li>
+<p>인터넷에 직접 액세스해야하는 모든 리소스(퍼블릭 로드밸랜서, NAT 인스턴스, 등)은 퍼블릭</p>
+<p>모든 다른 인스턴스는 프라이빗 서브넷으로 간다.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "wookchangyang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </main>
+
+  <footer>
+  <div>
+    &copy;  2021
+
+    
+
+    
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-172670101-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
