@@ -619,5 +619,15 @@ KEYWORD ! &amp;ldquo;배제&amp;rdquo;, &amp;ldquo;풀이 시간 단축&amp;rdqu
       <description>HTTP 프로토콜 정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙  설명  요청 : 데이터 주세요! client -&amp;gt; server : request 응답 : 여기 데이터~!</description>
     </item>
     
+    <item>
+      <title>스프링 MVC (1)</title>
+      <link>https://changwookyang.github.io/post/springmvc1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/springmvc1/</guid>
+      <description>WEB / WAS 모든 것이 HTTP HTTP 메시지에 모든 것을 전송
+ HTML, TEXT IMAGE, 음성, 영상, 파일 JSON, XML (API) 거의 모든 형태의 데이터 전송 가능 서버 간에 데이터를 주고 받을 때도 대부분 HTTP 사용 지금은 HTTP 시대!</description>
+    </item>
+    
   </channel>
 </rss>
