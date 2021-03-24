@@ -6,10 +6,19 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Mar 2021 22:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 24 Mar 2021 13:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ruby on Rails</title>
+      <link>https://changwookyang.github.io/post/ruby/</link>
+      <pubDate>Wed, 24 Mar 2021 13:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/ruby/</guid>
+      <description>Ruby on Rails 철학  DRY(Don&amp;rsquo;t Repeat Yourself) CoC(Convention over Configuration)  Ruby on Rails 강점   낮은 진입 장벽</description>
+    </item>
     
     <item>
       <title>스프링 MVC (1)</title>
@@ -627,6 +636,17 @@ KEYWORD ! &amp;ldquo;배제&amp;rdquo;, &amp;ldquo;풀이 시간 단축&amp;rdqu
       
       <guid>https://changwookyang.github.io/post/http2/</guid>
       <description>HTTP 프로토콜 정의 : 인터넷에서 데이터를 주고 받을 수 있는 규칙  설명  요청 : 데이터 주세요! client -&amp;gt; server : request 응답 : 여기 데이터~!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://changwookyang.github.io/post/%EC%8A%A4%ED%94%84%EB%A7%81-mvc2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/%EC%8A%A4%ED%94%84%EB%A7%81-mvc2/</guid>
+      <description>스프링 MVC2 HTTP 요청 데이터
+  Get - 쿼리 파라미터
+ /url    POST - HSTML Form</description>
     </item>
     
   </channel>

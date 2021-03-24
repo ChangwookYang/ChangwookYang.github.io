@@ -4,12 +4,17 @@
   
   <url>
     <loc>https://changwookyang.github.io/post/</loc>
-    <lastmod>2021-03-10T22:00:00+09:00</lastmod>
+    <lastmod>2021-03-24T13:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://changwookyang.github.io/post/ruby/</loc>
+    <lastmod>2021-03-24T13:00:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://changwookyang.github.io/</loc>
-    <lastmod>2021-03-10T22:00:00+09:00</lastmod>
+    <lastmod>2021-03-24T13:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -313,6 +318,10 @@
   
   <url>
     <loc>https://changwookyang.github.io/post/http2/</loc>
+  </url>
+  
+  <url>
+    <loc>https://changwookyang.github.io/post/%EC%8A%A4%ED%94%84%EB%A7%81-mvc2/</loc>
   </url>
   
   <url>
