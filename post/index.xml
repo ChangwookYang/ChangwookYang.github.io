@@ -6,10 +6,22 @@
     <description>Recent content in Posts on WOOKLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Mar 2021 13:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 11 Apr 2021 23:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://changwookyang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>log 간단정리</title>
+      <link>https://changwookyang.github.io/post/log/</link>
+      <pubDate>Sun, 11 Apr 2021 23:00:00 +0900</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/log/</guid>
+      <description>운영 시스템에서는 sysout을 사용하면 안된다.
+로깅라이브러리로는 spring-boot-starter-logging가 함께 포함된다.
+로그 라이브러리는 Logback, Log4J, Log4J2 등등 수많은 라이브러리가 있는데
+그것을 통합해서 인터페이스로 제공하는 것이 SLF4J 라이브러리이다.</description>
+    </item>
     
     <item>
       <title>Ruby on Rails</title>
@@ -617,6 +629,40 @@ KEYWORD ! &amp;ldquo;배제&amp;rdquo;, &amp;ldquo;풀이 시간 단축&amp;rdqu
       <guid>https://changwookyang.github.io/post/test/</guid>
       <description>WELCOME TO WOOKLOG!
 모두 열공!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://changwookyang.github.io/post/42-%EA%B8%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/42-%EA%B8%88/</guid>
+      <description>4/2 (금)
+redirect vs forward
+리다이렉트는 실제 클라이언트에 응답이 나갔다가 클라이언트가 redirect 경로로 다시 요청한다.
+따라서 클라이언트가 인지할 수 있고, url 경로도 실제로 변경된다.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://changwookyang.github.io/post/43%ED%86%A0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/43%ED%86%A0/</guid>
+      <description>4/3 10줄 글쓰기!
+FrontController 패턴 특징  프론트 컨트롤러 서블릿 하나로 클라이언트의 요청을 받음.(입구를 하나로!-공통처리 가능) 프론트 컨트롤러가 요청에 맞는 컨트롤러를 찾아서 호출한다.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://changwookyang.github.io/post/44/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://changwookyang.github.io/post/44/</guid>
+      <description>4/4 글쓰기
+DispatcherServlet 구조살펴보기 스프링 mvc도 프론트 컨트롤러 패턴으로 구현되어 있다.
+스프링 mvc의 프론트 컨트롤러가 바로 디스패쳐 서블릿이다.
+그리고 이 디스패처 서블릿이 바로 스프링 MVC의 핵심이다.</description>
     </item>
     
     <item>
